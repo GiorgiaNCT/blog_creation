@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Journal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefefe;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Custom cursor */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+
+        .cursor.hover {
+            transform: scale(2);
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 60px;
+            background: rgba(254, 254, 254, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            padding: 25px 60px;
+            background: rgba(254, 254, 254, 0.98);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #666;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 60px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            color: #666;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        .nav-right {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-left {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 8s ease;
+        }
+
+        .hero-image:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 80px;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 8vw, 8rem);
+            font-weight: 900;
+            color: #1a1a1a;
+            line-height: 0.9;
+            margin-bottom: 40px;
+            position: absolute;
+            left: -200px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 300;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.8s forwards;
+        }
+
+        .hero-small-image {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            margin-left: auto;
+            border-radius: 4px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.2s forwards;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-small-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .rotated-caption {
+            position: absolute;
+            bottom: 120px;
+            right: -80px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #999;
+            transform: rotate(90deg);
+            transform-origin: center;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.6s forwards;
+        }
+
+        /* Journal Entries */
+        .journal-entries {
+            padding: 120px 60px;
+        }
+
+        .entry {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 200px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .entry.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .entry:nth-child(even) {
+            grid-template-columns: 1fr 1fr;
+            direction: rtl;
+        }
+
+        .entry:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .entry-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .entry-image:hover {
+            transform: scale(1.02);
+        }
+
+        .entry-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 40px;
+        }
+
+        .entry-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .entry-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            color: #999;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .entry-description {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 300;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .entry-location {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            color: #999;
+            transform: rotate(-90deg);
+            position: absolute;
+            right: -60px;
+            top: 50%;
+            transform-origin: center;
+        }
+
+        /* Parallax Gallery */
+        .parallax-gallery {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            margin: 200px 0;
+        }
+
+        .parallax-images {
+            display: flex;
+            gap: 40px;
+            transform: translateX(0);
+            transition: transform 0.1s ease-out;
+        }
+
+        .parallax-image {
+            width: 300px;
+            height: 500px;
+            object-fit: cover;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .parallax-image:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 120px 60px 60px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .footer-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .social-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            color: #999;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #1a1a1a;
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 20px 30px;
+            }
+            
+            .nav-links {
+                gap: 30px;
+            }
+            
+            .hero {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+            
+            .hero-title {
+                position: static;
+                transform: none;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            .hero-right {
+                padding: 40px 30px;
+            }
+            
+            .entry {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-bottom: 100px;
+            }
+            
+            .entry:nth-child(even) {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+            
+            .journal-entries {
+                padding: 60px 30px;
+            }
+            
+            .parallax-image {
+                width: 200px;
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#" class="logo">W</a>
+        <ul class="nav-links">
+            <li><a href="#iceland">Iceland</a></li>
+            <li><a href="#japan">Japan</a></li>
+            <li><a href="#peru">Peru</a></li>
+            <li><a href="#norway">Norway</a></li>
+        </ul>
+        <div class="nav-right">Where stories unfold</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=1600&fit=crop&crop=center" alt="Iceland Landscape" class="hero-image">
+        </div>
+        <div class="hero-right">
+            <h1 class="hero-title">Iceland '24</h1>
+            <p class="hero-subtitle">Where fire meets ice, and silence speaks louder than words. A journey through landscapes that feel borrowed from dreams, capturing moments where time stands still.</p>
+            <img src="https://images.unsplash.com/photo-1531168556467-80aace4d4cd1?w=600&h=800&fit=crop&crop=center" alt="Northern Lights" class="hero-small-image">
+            <div class="rotated-caption">Aurora Borealis</div>
+        </div>
+    </section>
+
+    <!-- Journal Entries -->
+    <section class="journal-entries">
+        <div class="entry">
+            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&h=1200&fit=crop&crop=center" alt="Japan Temple" class="entry-image">
+            <div class="entry-content">
+                <div class="entry-date">March 2024</div>
+                <h2 class="entry-title">Kyoto</h2>
+                <p class="entry-description">In the quiet temples of ancient Kyoto, cherry blossoms drift like whispered secrets. Each petal carries stories of centuries past, floating gently on spring winds that have witnessed countless seasons of renewal.</p>
+                <div class="entry-location">Kinkaku-ji Temple</div>
+            </div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-content">
+                <div class="entry-date">August 2023</div>
+                <h2 class="entry-title">Andes</h2>
+                <p class="entry-description">Above the clouds, where the air grows thin and the world feels infinite. The ancient paths of the Inca wind through mist-covered peaks, each step a meditation on the endurance of human spirit.</p>
+                <div class="entry-location">Machu Picchu Trail</div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1531065208531-4036c0dba3ca?w=800&h=1200&fit=crop&crop=center" alt="Machu Picchu" class="entry-image">
+        </div>
+
+        <div class="entry">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=1200&fit=crop&crop=center" alt="Norwegian Fjords" class="entry-image">
+            <div class="entry-content">
+                <div class="entry-date">June 2023</div>
+                <h2 class="entry-title">Fjords</h2>
+                <p class="entry-description">Carved by ancient glaciers, the Norwegian fjords stand as monuments to time itself. Here, waterfalls plunge into emerald waters while midnight sun paints the sky in shades of gold and amber.</p>
+                <div class="entry-location">Geiranger Fjord</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Gallery -->
+    <section class="parallax-gallery">
+        <div class="parallax-images">
+            <img src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=600&h=1000&fit=crop&crop=center" alt="Travel Memory 1" class="parallax-image">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=1000&fit=crop&crop=center" alt="Travel Memory 2" class="parallax-image">
+            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&h=1000&fit=crop&crop=center" alt="Travel Memory 3" class="parallax-image">
+            <img src="https://images.unsplash.com/photo-1531065208531-4036c0dba3ca?w=600&h=1000&fit=crop&crop=center" alt="Travel Memory 4" class="parallax-image">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=1000&fit=crop&crop=center" alt="Travel Memory 5" class="parallax-image">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3 class="footer-title">Every journey tells a story</h3>
+        <p class="footer-subtitle">Follow along as we capture moments that transcend the ordinary</p>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Journal</a>
+            <a href="#">Contact</a>
+            <a href="#">Archive</a>
+        </div>
+        <div style="font-family: 'Inter', sans-serif; font-size: 12px; color: #ccc; margin-top: 40px;">
+            © 2024 Wanderlust Journal. Crafted with curiosity.
+        </div>
+    </footer>
+
+    <script>
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        const hoverElements = document.querySelectorAll('a, img, .entry-image');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Navigation scroll effect
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animations for entries
+        const entries = document.querySelectorAll('.entry');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        entries.forEach(entry => {
+            observer.observe(entry);
+        });
+
+        // Parallax gallery mouse effect
+        const parallaxGallery = document.querySelector('.parallax-gallery');
+        const parallaxImages = document.querySelector('.parallax-images');
+
+        parallaxGallery.addEventListener('mousemove', (e) => {
+            const rect = parallaxGallery.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const centerX = rect.width / 2;
+            const moveX = (x - centerX) * 0.02;
+            
+            parallaxImages.style.transform = `translateX(${moveX}px)`;
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Image lazy loading effect
+        const images = document.querySelectorAll('img');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.style.opacity = '0';
+                    img.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        img.style.transition = 'all 0.8s ease';
+                        img.style.opacity = '1';
+                        img.style.transform = 'scale(1)';
+                    }, 100);
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => {
+            imageObserver.observe(img);
+        });
+
+        // Parallax scrolling effect for hero image
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImage = document.querySelector('.hero-image');
+            const parallaxSpeed = scrolled * 0.5;
+            heroImage.style.transform = `translateY(${parallaxSpeed}px) scale(1.1)`;
+        });
+    </script>
+</body>
+</html>
