@@ -448,7 +448,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="iceland" class="hero">
         <div class="hero-left">
             <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=1600&fit=crop&crop=center" alt="Iceland Landscape" class="hero-image">
         </div>
@@ -462,7 +462,7 @@
 
     <!-- Journal Entries -->
     <section class="journal-entries">
-        <div class="entry">
+        <div id="japan" class="entry">
             <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&h=1200&fit=crop&crop=center" alt="Japan Temple" class="entry-image">
             <div class="entry-content">
                 <div class="entry-date">March 2024</div>
@@ -472,7 +472,7 @@
             </div>
         </div>
 
-        <div class="entry">
+        <div id="peru" class="entry">
             <div class="entry-content">
                 <div class="entry-date">August 2023</div>
                 <h2 class="entry-title">Andes</h2>
@@ -482,7 +482,7 @@
             <img src="https://images.unsplash.com/photo-1531065208531-4036c0dba3ca?w=800&h=1200&fit=crop&crop=center" alt="Machu Picchu" class="entry-image">
         </div>
 
-        <div class="entry">
+        <div id="norway" class="entry">
             <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=1200&fit=crop&crop=center" alt="Norwegian Fjords" class="entry-image">
             <div class="entry-content">
                 <div class="entry-date">June 2023</div>
@@ -567,8 +567,10 @@
             const x = e.clientX - rect.left;
             const centerX = rect.width / 2;
             const moveX = (x - centerX) * 0.02;
-            
+
             parallaxImages.style.transform = `translateX(${moveX}px)`;
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -589,11 +591,9 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    img.style.opacity = '0';
                     img.style.transform = 'scale(0.9)';
                     setTimeout(() => {
                         img.style.transition = 'all 0.8s ease';
-                        img.style.opacity = '1';
                         img.style.transform = 'scale(1)';
                     }, 100);
                     imageObserver.unobserve(img);
