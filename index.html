@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wanderlust Journal</title>
+    <title>Through My Lens - Photo Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500&display=swap');
-        
         * {
             margin: 0;
             padding: 0;
@@ -15,349 +14,347 @@
         
         body {
             font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2c2c2c;
             background-color: #fefefe;
-            overflow-x: hidden;
-            cursor: none;
         }
-
-        /* Custom cursor */
-        .cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
+        
+        /* Header */
+        header {
+            padding: 40px 0;
+            border-bottom: 1px solid #f0f0f0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
+            z-index: 100;
+        }
+        
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 40px 60px;
-            background: rgba(254, 254, 254, 0.95);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
         }
-
-        .nav.scrolled {
-            padding: 25px 60px;
-            background: rgba(254, 254, 254, 0.98);
-        }
-
+        
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: #1a1a1a;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2c2c2c;
             text-decoration: none;
             transition: all 0.3s ease;
         }
-
+        
         .logo:hover {
-            color: #666;
+            color: #d4914a;
+            transform: translateY(-2px);
         }
-
-        .nav-links {
+        
+        nav ul {
             display: flex;
-            gap: 60px;
             list-style: none;
+            gap: 40px;
         }
-
-        .nav-links a {
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            font-size: 16px;
-            color: #666;
+        
+        nav a {
             text-decoration: none;
-            position: relative;
+            color: #2c2c2c;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
+            position: relative;
         }
-
-        .nav-links a::after {
+        
+        nav a:hover {
+            color: #d4914a;
+        }
+        
+        nav a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
             width: 0;
-            height: 1px;
-            background: #1a1a1a;
-            transition: width 0.3s ease;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: #d4914a;
+            transition: all 0.3s ease;
         }
-
-        .nav-links a:hover::after {
+        
+        nav a:hover::after {
             width: 100%;
+            left: 0;
         }
-
-        .nav-links a:hover {
-            color: #1a1a1a;
-        }
-
-        .nav-right {
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            font-size: 14px;
-            color: #999;
-            font-style: italic;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
+        
+        /* Main Layout */
+        .main-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            position: relative;
-            overflow: hidden;
+            grid-template-columns: 1fr 300px;
+            gap: 60px;
+            padding: 60px 0;
         }
-
-        .hero-left {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 8s ease;
-        }
-
-        .hero-image:hover {
-            transform: scale(1.05);
-        }
-
-        .hero-right {
+        
+        /* Blog Posts */
+        .blog-posts {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding: 0 80px;
-            position: relative;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(4rem, 8vw, 8rem);
-            font-weight: 900;
-            color: #1a1a1a;
-            line-height: 0.9;
-            margin-bottom: 40px;
-            position: absolute;
-            left: -200px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 10;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-        }
-
-        .hero-subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            font-weight: 300;
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 60px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.8s forwards;
-        }
-
-        .hero-small-image {
-            width: 300px;
-            height: 400px;
-            object-fit: cover;
-            margin-left: auto;
-            border-radius: 4px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 1.2s forwards;
-            transition: transform 0.3s ease;
-        }
-
-        .hero-small-image:hover {
-            transform: translateY(-10px);
-        }
-
-        .rotated-caption {
-            position: absolute;
-            bottom: 120px;
-            right: -80px;
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            font-weight: 400;
-            color: #999;
-            transform: rotate(90deg);
-            transform-origin: center;
-            opacity: 0;
-            animation: fadeIn 1s ease 1.6s forwards;
-        }
-
-        /* Journal Entries */
-        .journal-entries {
-            padding: 120px 60px;
-        }
-
-        .entry {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 80px;
-            margin-bottom: 200px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
         }
-
-        .entry.visible {
-            opacity: 1;
-            transform: translateY(0);
+        
+        .post {
+            animation: fadeInUp 0.8s ease-out;
         }
-
-        .entry:nth-child(even) {
-            grid-template-columns: 1fr 1fr;
-            direction: rtl;
+        
+        .post-header {
+            margin-bottom: 20px;
         }
-
-        .entry:nth-child(even) > * {
-            direction: ltr;
-        }
-
-        .entry-image {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            transition: all 0.5s ease;
-        }
-
-        .entry-image:hover {
-            transform: scale(1.02);
-        }
-
-        .entry-content {
+        
+        .post-meta {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 40px;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
         }
-
-        .entry-title {
+        
+        .post-category {
+            color: #d4914a;
+        }
+        
+        .post-date {
+            color: #888;
+        }
+        
+        .post-title {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            line-height: 0.9;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        .post-title:hover {
+            color: #d4914a;
+            cursor: pointer;
+        }
+        
+        .post-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+        
+        .post-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .post-excerpt {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
             margin-bottom: 30px;
         }
-
-        .entry-date {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 300;
-            color: #999;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        
+        .continue-reading {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #f8f8f8;
+            color: #2c2c2c;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
-
-        .entry-description {
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            font-weight: 300;
+        
+        .continue-reading:hover {
+            background: #d4914a;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 145, 74, 0.3);
+        }
+        
+        .post-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+            margin: 40px 0;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 140px;
+            height: fit-content;
+        }
+        
+        .sidebar-section {
+            background: #fdfdfd;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #f5f5f5;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-section:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+        
+        .sidebar-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #f0f0f0;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #d4914a;
+            box-shadow: 0 0 0 3px rgba(212, 145, 74, 0.1);
+        }
+        
+        .about-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
             color: #666;
-            line-height: 1.8;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
-
-        .entry-location {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            font-weight: 400;
-            color: #999;
-            transform: rotate(-90deg);
-            position: absolute;
-            right: -60px;
-            top: 50%;
-            transform-origin: center;
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
         }
-
-        /* Parallax Gallery */
-        .parallax-gallery {
-            height: 100vh;
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #f8f8f8;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            position: relative;
-            margin: 200px 0;
-        }
-
-        .parallax-images {
-            display: flex;
-            gap: 40px;
-            transform: translateX(0);
-            transition: transform 0.1s ease-out;
-        }
-
-        .parallax-image {
-            width: 300px;
-            height: 500px;
-            object-fit: cover;
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-
-        .parallax-image:hover {
-            transform: scale(1.05) rotate(2deg);
-        }
-
-        /* Footer */
-        .footer {
-            padding: 120px 60px 60px;
-            text-align: center;
-            border-top: 1px solid #eee;
-        }
-
-        .footer-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-        }
-
-        .footer-subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            font-weight: 300;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .social-links a {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 300;
-            color: #999;
             text-decoration: none;
+            color: #666;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .social-link:hover {
+            background: #d4914a;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .related-posts {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .related-post {
+            display: flex;
+            gap: 15px;
+            text-decoration: none;
+            color: inherit;
+            padding: 10px;
+            border-radius: 8px;
             transition: all 0.3s ease;
         }
-
-        .social-links a:hover {
-            color: #1a1a1a;
+        
+        .related-post:hover {
+            background: #f8f8f8;
+        }
+        
+        .related-post img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        
+        .related-post-content {
+            flex: 1;
+        }
+        
+        .related-post-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+        
+        .related-post-date {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Newsletter */
+        .newsletter-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #f0f0f0;
+            border-radius: 30px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #d4914a;
+            box-shadow: 0 0 0 3px rgba(212, 145, 74, 0.1);
+        }
+        
+        .newsletter-btn {
+            width: 100%;
+            padding: 15px;
+            background: #2c2c2c;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background: #d4914a;
             transform: translateY(-2px);
         }
-
+        
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -369,246 +366,306 @@
                 transform: translateY(0);
             }
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
+        
         /* Responsive */
         @media (max-width: 768px) {
-            .nav {
-                padding: 20px 30px;
-            }
-            
-            .nav-links {
-                gap: 30px;
-            }
-            
-            .hero {
-                grid-template-columns: 1fr;
-                grid-template-rows: 1fr 1fr;
-            }
-            
-            .hero-title {
-                position: static;
-                transform: none;
-                text-align: center;
-                margin-bottom: 20px;
-            }
-            
-            .hero-right {
-                padding: 40px 30px;
-            }
-            
-            .entry {
+            .main-layout {
                 grid-template-columns: 1fr;
                 gap: 40px;
-                margin-bottom: 100px;
             }
             
-            .entry:nth-child(even) {
-                grid-template-columns: 1fr;
-                direction: ltr;
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
             }
             
-            .journal-entries {
-                padding: 60px 30px;
+            nav ul {
+                gap: 20px;
             }
             
-            .parallax-image {
-                width: 200px;
-                height: 350px;
+            .post-title {
+                font-size: 1.8rem;
+            }
+            
+            .post-image {
+                height: 300px;
+            }
+            
+            .sidebar {
+                position: relative;
+                top: auto;
             }
         }
     </style>
 </head>
 <body>
-    <div class="cursor"></div>
-
-    <!-- Navigation -->
-    <nav class="nav">
-        <a href="#" class="logo">W</a>
-        <ul class="nav-links">
-            <li><a href="#iceland">Iceland</a></li>
-            <li><a href="#japan">Photo</a></li>
-            <li><a href="#peru">Knit</a></li>
-            <li><a href="#norway">Crochet</a></li>
-        </ul>
-        <div class="nav-right">Where stories unfold</div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="iceland" class="hero">
-        <div class="hero-left">
-            <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/404225894adb8c2e00a92cfe9a15fe1c5dbfbf2c/6-DSCF5719.jpg" alt="Iceland Landscape" class="hero-image">
-        </div>
-        <div class="hero-right">
-            <h1 class="hero-title">Mexico '24</h1>
-            <p class="hero-subtitle">Where fire meets ice, and silence speaks louder than words. A journey through landscapes that feel borrowed from dreams, capturing moments where time stands still.</p>
-            <img src="https://images.unsplash.com/photo-1531168556467-80aace4d4cd1?w=600&h=800&fit=crop&crop=center" alt="Northern Lights" class="hero-small-image">
-            <div class="rotated-caption">Aurora Borealis</div>
-        </div>
-    </section>
-
-    <!-- Journal Entries -->
-    <section class="journal-entries">
-        <div id="japan" class="entry">
-            <div class="entry-content">
-                <div class="entry-date">March 2024</div>
-                <h2 class="entry-title">Kyoto</h2>
-                <p class="entry-description">In the quiet temples of ancient Kyoto, cherry blossoms drift like whispered secrets. Each petal carries stories of centuries past, floating gently on spring winds that have witnessed countless seasons of renewal.</p>
-                <div class="entry-location">Kinkaku-ji Temple</div>
-            </div>
-            <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/60-DSCF3191.jpg" alt="Model 1" class="entry-image">
-            <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/58-DSCF5165.jpg" alt="Model 2" class="entry-image">
-
-        </div>
-        
-
-        <div id="peru" class="entry">
-            <div class="entry-content">
-                <div class="entry-date">August 2023</div>
-                <h2 class="entry-title">Andes</h2>
-                <p class="entry-description">Above the clouds, where the air grows thin and the world feels infinite. The ancient paths of the Inca wind through mist-covered peaks, each step a meditation on the endurance of human spirit.</p>
-                <div class="entry-location">Machu Picchu Trail</div>
-            </div>
-            <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/42-DSCF5406.jpg" alt="Machu Picchu" class="entry-image">
-        </div>
-
-        <div id="norway" class="entry">
-            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=1200&fit=crop&crop=center" alt="Norwegian Fjords" class="entry-image">
-            <div class="entry-content">
-                <div class="entry-date">June 2023</div>
-                <h2 class="entry-title">Fjords</h2>
-                <p class="entry-description">Carved by ancient glaciers, the Norwegian fjords stand as monuments to time itself. Here, waterfalls plunge into emerald waters while midnight sun paints the sky in shades of gold and amber.</p>
-                <div class="entry-location">Geiranger Fjord</div>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Through My Lens</a>
+                <nav>
+                    <ul>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Nature</a></li>
+                        <li><a href="#">Urban</a></li>
+                        <li><a href="#">Stories</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Parallax Gallery -->
-    <section class="parallax-gallery">
-        <div class="parallax-images">
-            <img src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=600&h=1000&fit=crop&crop=center" alt="Travel Memory 1" class="parallax-image">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=1000&fit=crop&crop=center" alt="Travel Memory 2" class="parallax-image">
-            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&h=1000&fit=crop&crop=center" alt="Travel Memory 3" class="parallax-image">
-            <img src="https://images.unsplash.com/photo-1531065208531-4036c0dba3ca?w=600&h=1000&fit=crop&crop=center" alt="Travel Memory 4" class="parallax-image">
-            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=1000&fit=crop&crop=center" alt="Travel Memory 5" class="parallax-image">
-        </div>
-    </section>
+    <main class="container">
+        <div class="main-layout">
+            <div class="blog-posts">
+                <!-- Post 1 -->
+                <article class="post">
+                    <div class="post-header">
+                        <div class="post-meta">
+                            <span class="post-category">Nature Photography</span>
+                            <span class="post-date">December 15, 2024</span>
+                        </div>
+                        <h2 class="post-title">Golden Hour in the Swiss Alps</h2>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=500&fit=crop&auto=format" alt="Swiss Alps at golden hour" class="post-image">
+                    <p class="post-excerpt">
+                        There's something magical about the way light dances across mountain peaks during golden hour. This particular morning in the Swiss Alps reminded me why I fell in love with landscape photography. The interplay of shadows and warm light created a scene that felt almost otherworldly...
+                    </p>
+                    <a href="#" class="continue-reading">Continue Reading</a>
+                    <div class="post-divider"></div>
+                </article>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <h3 class="footer-title">Every journey tells a story</h3>
-        <p class="footer-subtitle">Follow along as we capture moments that transcend the ordinary</p>
-        <div class="social-links">
-            <a href="#">Instagram</a>
-            <a href="#">Journal</a>
-            <a href="#">Contact</a>
-            <a href="#">Archive</a>
+                <!-- Post 2 -->
+                <article class="post">
+                    <div class="post-header">
+                        <div class="post-meta">
+                            <span class="post-category">Street Photography</span>
+                            <span class="post-date">December 12, 2024</span>
+                        </div>
+                        <h2 class="post-title">Reflections in Tokyo Rain</h2>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&h=500&fit=crop&auto=format" alt="Tokyo street in rain" class="post-image">
+                    <p class="post-excerpt">
+                        Rain transforms cities in the most beautiful ways. Walking through Tokyo's bustling streets while droplets fell created perfect mirrors on every surface. The neon lights reflected in puddles, creating a dreamlike urban landscape that spoke to the soul of the city...
+                    </p>
+                    <a href="#" class="continue-reading">Continue Reading</a>
+                    <div class="post-divider"></div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="post">
+                    <div class="post-header">
+                        <div class="post-meta">
+                            <span class="post-category">Portrait</span>
+                            <span class="post-date">December 8, 2024</span>
+                        </div>
+                        <h2 class="post-title">Stories in Weathered Hands</h2>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&h=500&fit=crop&auto=format" alt="Portrait of elderly hands" class="post-image">
+                    <p class="post-excerpt">
+                        Every wrinkle tells a story, every line speaks of years lived fully. Portrait photography isn't just about capturing faces—it's about preserving the essence of human experience. These hands have worked, loved, created, and endured through decades of life...
+                    </p>
+                    <a href="#" class="continue-reading">Continue Reading</a>
+                    <div class="post-divider"></div>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="post">
+                    <div class="post-header">
+                        <div class="post-meta">
+                            <span class="post-category">Wildlife</span>
+                            <span class="post-date">December 5, 2024</span>
+                        </div>
+                        <h2 class="post-title">Arctic Fox in Winter's Embrace</h2>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1551893662-7d5e4c595bcd?w=800&h=500&fit=crop&auto=format" alt="Arctic fox in snow" class="post-image">
+                    <p class="post-excerpt">
+                        Patience is the wildlife photographer's greatest tool. After hours of waiting in sub-zero temperatures, this arctic fox emerged from the snow-covered landscape like a ghost. The contrast between its pristine white coat and the endless winter backdrop created pure magic...
+                    </p>
+                    <a href="#" class="continue-reading">Continue Reading</a>
+                </article>
+            </div>
+
+            <aside class="sidebar">
+                <!-- Search -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Search</h3>
+                    <input type="text" placeholder="Search photos..." class="search-box">
+                </div>
+
+                <!-- About -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">About</h3>
+                    <p class="about-text">
+                        I'm Sarah, a passionate photographer who believes every moment deserves to be captured beautifully. Through my lens, I explore the world's hidden stories and share them with you.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">IG</a>
+                        <a href="#" class="social-link">FB</a>
+                        <a href="#" class="social-link">TW</a>
+                        <a href="#" class="social-link">YT</a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Newsletter</h3>
+                    <p class="about-text" style="font-size: 0.9rem; margin-bottom: 20px;">
+                        Get weekly photo stories and tips delivered to your inbox.
+                    </p>
+                    <input type="email" placeholder="Your email..." class="newsletter-input">
+                    <button class="newsletter-btn">Subscribe</button>
+                </div>
+
+                <!-- Related Posts -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">You Might Also Like</h3>
+                    <div class="related-posts">
+                        <a href="#" class="related-post">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=60&h=60&fit=crop&auto=format" alt="Mountain sunset">
+                            <div class="related-post-content">
+                                <div class="related-post-title">Chasing Light in Patagonia</div>
+                                <div class="related-post-date">Nov 28, 2024</div>
+                            </div>
+                        </a>
+                        <a href="#" class="related-post">
+                            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=60&h=60&fit=crop&auto=format" alt="City lights">
+                            <div class="related-post-content">
+                                <div class="related-post-title">Urban Nights in Seoul</div>
+                                <div class="related-post-date">Nov 25, 2024</div>
+                            </div>
+                        </a>
+                        <a href="#" class="related-post">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=60&h=60&fit=crop&auto=format" alt="Ocean waves">
+                            <div class="related-post-content">
+                                <div class="related-post-title">Ocean Moods in Iceland</div>
+                                <div class="related-post-date">Nov 22, 2024</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </aside>
         </div>
-        <div style="font-family: 'Inter', sans-serif; font-size: 12px; color: #ccc; margin-top: 40px;">
-            © 2024 Wanderlust Journal. Crafted with curiosity.
-        </div>
-    </footer>
+    </main>
 
     <script>
-        // Custom cursor
-        const cursor = document.querySelector('.cursor');
-        const hoverElements = document.querySelectorAll('a, img, .entry-image');
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-        });
-
-        // Navigation scroll effect
-        const nav = document.querySelector('.nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll animations for entries
-        const entries = document.querySelectorAll('.entry');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        entries.forEach(entry => {
-            observer.observe(entry);
-        });
-
-        // Parallax gallery mouse effect
-        const parallaxGallery = document.querySelector('.parallax-gallery');
-        const parallaxImages = document.querySelector('.parallax-images');
-
-        parallaxGallery.addEventListener('mousemove', (e) => {
-            const rect = parallaxGallery.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const centerX = rect.width / 2;
-            const moveX = (x - centerX) * 0.02;
-
-            parallaxImages.style.transform = `translateX(${moveX}px)`;
-        });
-
         // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                        behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Image lazy loading effect
-        const images = document.querySelectorAll('img');
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.style.transform = 'scale(0.9)';
-                    setTimeout(() => {
-                        img.style.transition = 'all 0.8s ease';
-                        img.style.transform = 'scale(1)';
-                    }, 100);
-                    imageObserver.unobserve(img);
+        // Search functionality
+        const searchBox = document.querySelector('.search-box');
+        const posts = document.querySelectorAll('.post');
+
+        searchBox.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            posts.forEach(post => {
+                const title = post.querySelector('.post-title').textContent.toLowerCase();
+                const excerpt = post.querySelector('.post-excerpt').textContent.toLowerCase();
+                const category = post.querySelector('.post-category').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm) || category.includes(searchTerm)) {
+                    post.style.display = 'block';
+                    post.style.animation = 'fadeInUp 0.5s ease-out';
+                } else {
+                    post.style.display = searchTerm ? 'none' : 'block';
                 }
             });
         });
 
-        images.forEach(img => {
-            imageObserver.observe(img);
+        // Newsletter subscription
+        const newsletterBtn = document.querySelector('.newsletter-btn');
+        const newsletterInput = document.querySelector('.newsletter-input');
+
+        newsletterBtn.addEventListener('click', function() {
+            const email = newsletterInput.value.trim();
+            if (email && email.includes('@')) {
+                newsletterBtn.textContent = 'Subscribed!';
+                newsletterBtn.style.background = '#4CAF50';
+                newsletterInput.value = '';
+                
+                setTimeout(() => {
+                    newsletterBtn.textContent = 'Subscribe';
+                    newsletterBtn.style.background = '#2c2c2c';
+                }, 2000);
+            } else {
+                newsletterInput.style.borderColor = '#e74c3c';
+                setTimeout(() => {
+                    newsletterInput.style.borderColor = '#f0f0f0';
+                }, 1000);
+            }
         });
 
-        // Parallax scrolling effect for hero image
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroImage = document.querySelector('.hero-image');
-            const parallaxSpeed = scrolled * 0.5;
-            heroImage.style.transform = `translateY(${parallaxSpeed}px) scale(1.1)`;
+        // Image hover effects
+        document.querySelectorAll('.post-image').forEach(img => {
+            img.addEventListener('click', function() {
+                // Simple lightbox effect
+                const lightbox = document.createElement('div');
+                lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 1000;
+                    cursor: pointer;
+                `;
+                
+                const lightboxImg = document.createElement('img');
+                lightboxImg.src = this.src;
+                lightboxImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    object-fit: contain;
+                    border-radius: 8px;
+                `;
+                
+                lightbox.appendChild(lightboxImg);
+                document.body.appendChild(lightbox);
+                
+                lightbox.addEventListener('click', () => {
+                    document.body.removeChild(lightbox);
+                });
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all posts
+        posts.forEach(post => {
+            post.style.opacity = '0';
+            post.style.transform = 'translateY(30px)';
+            post.style.transition = 'all 0.8s ease-out';
+            observer.observe(post);
         });
     </script>
 </body>
