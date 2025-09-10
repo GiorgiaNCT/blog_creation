@@ -90,3 +90,30 @@ window.addEventListener('scroll', () => {
     const parallaxSpeed = scrolled * 0.5;
     heroImage.style.transform = `translateY(${parallaxSpeed}px) scale(1.1)`;
 });
+
+// Share functionality for post pages
+document.querySelectorAll('.share-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const platform = this.classList[1];
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent(document.title);
+
+        let shareUrl = '';
+        switch(platform) {
+            case 'facebook':
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                break;
+            case 'twitter':
+                shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                break;
+            case 'pinterest':
+                shareUrl = `https://pinterest.com/pin/create/button/?url=${url}&description=${title}`;
+                break;
+        }
+
+        if (shareUrl) {
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+    });
+});
