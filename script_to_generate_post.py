@@ -3,6 +3,7 @@ title = 'titolo'
 titolo_blog = 'PROVA'
 test_blog_post = 'blablabla'
 subtitle_post = 'sottotitolo'
+tags_post = 'tags1'
 
 html_template = f"""
 <!DOCTYPE html>
@@ -484,18 +485,12 @@ html_template = f"""
                     <p class="post-subtitle">{subtitle_post}</p>
                 </div>
 
-                <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/60-DSCF3191.jpg" alt="Catrina Day of the Dead makeup" class="featured-image">
-
                 <div class="post-content">
                     <p>{test_blog_post}</p>
                 </div>
 
                 <div class="post-tags">
-                    <a href="#" class="tag">Day of the Dead</a>
-                    <a href="#" class="tag">Mexican Culture</a>
-                    <a href="#" class="tag">Portrait Photography</a>
-                    <a href="#" class="tag">CDMX</a>
-                    <a href="#" class="tag">Cultural Photography</a>
+                    <a href="#" class="tag">{tags_post}</a>
                 </div>
 
                 <div class="share-section">
