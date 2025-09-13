@@ -1,5 +1,9 @@
 import os
 title = 'titolo'
+titolo_blog = 'PROVA'
+test_blog_post = 'blablabla'
+subtitle_post = 'sottotitolo'
+tags_post = 'tags1'
 
 html_template = f"""
 <!DOCTYPE html>
@@ -477,55 +481,16 @@ html_template = f"""
                         <span class="post-category">Photography</span>
                         <span class="post-date">December 15, 2024</span>
                     </div>
-                    <h1 class="post-title">Catrinas in CDMX: A Día de los Muertos Photoshoot</h1>
-                    <p class="post-subtitle">A vibrant homage to Día de los Muertos in CDMX, where Catrinas embody elegance and tradition. This photoshoot captures the spirit of remembrance and celebration.</p>
+                    <h1 class="post-title">{titolo_blog}</h1>
+                    <p class="post-subtitle">{subtitle_post}</p>
                 </div>
 
-                <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/60-DSCF3191.jpg" alt="Catrina Day of the Dead makeup" class="featured-image">
-
                 <div class="post-content">
-                    <p>Mexico City during Día de los Muertos is nothing short of magical. The streets come alive with vibrant colors, intricate altars, and the haunting beauty of Catrinas—those elegant skeletal figures that have become synonymous with this sacred celebration of life and death.</p>
-
-                    <p>This photoshoot was born from a deep fascination with Mexican culture and the profound beauty found in their approach to mortality. Unlike many cultures that fear death, Mexicans embrace it as a natural part of life's cycle, celebrating their departed loved ones with joy, color, and remembrance.</p>
-
-                    <h3>The Art of Transformation</h3>
-                    
-                    <p>Working with local makeup artists in CDMX was an incredible experience. Each Catrina look took hours to complete, with artists meticulously painting intricate designs that honor traditional Day of the Dead aesthetics while adding their own contemporary flair. The attention to detail was extraordinary—from the delicate flower patterns around the eyes to the ornate designs that seemed to dance across the models' faces.</p>
-
-                    <div class="image-gallery">
-                        <div>
-                            <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/58-DSCF5165.jpg" alt="Catrina portrait with flowers" class="gallery-image">
-                            <p class="image-caption">The intricate makeup process takes several hours, with artists carefully crafting each detail by hand.</p>
-                        </div>
-                    </div>
-
-                    <div class="quote">
-                        "Death is not the opposite of life, but a part of it. In Mexico, we don't mourn the dead—we celebrate their journey and keep their memory alive through art, food, and tradition."
-                    </div>
-
-                    <h3>Cultural Significance</h3>
-                    
-                    <p>The Catrina, originally created by artist José Guadalupe Posada and later immortalized by Diego Rivera, represents the democratic nature of death—it comes to rich and poor alike. During our shoot, I was struck by how the models embodied this spirit, transforming into these ethereal beings that seemed to bridge the world of the living and the dead.</p>
-                    
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/f54ee20ceaa0c3c54585d38fee1982d309d0e0fa/55-DSCF5246.jpg" alt="Catrina 2" class="featured-image">
-                    
-                    <p>Each photograph in this series aims to capture not just the visual beauty of the Catrina tradition, but the deeper cultural significance it holds. These images are a testament to Mexico's unique relationship with mortality—one that finds beauty in the macabre and celebrates life through the acknowledgment of death.</p>
-
-                    <h3>Behind the Scenes</h3>
-                    
-                    <p>Shooting in Mexico City's historic center provided the perfect backdrop for this project. The colonial architecture, with its weathered stones and baroque details, complemented the timeless elegance of the Catrina aesthetic. We worked primarily during the golden hour, when the warm light softened the dramatic makeup and created an otherworldly atmosphere.</p>
-                    
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/f54ee20ceaa0c3c54585d38fee1982d309d0e0fa/62-DSCF3180.jpg" alt="Catrina 2" class="featured-image">
-                    
-                    <p>The collaboration with local artists was invaluable—not only for their technical expertise but for their cultural knowledge and respect for the traditions we were documenting. This wasn't just a photoshoot; it was a cultural exchange that deepened my understanding of Mexican heritage and the beautiful complexity of Día de los Muertos.</p>
+                    <p>{test_blog_post}</p>
                 </div>
 
                 <div class="post-tags">
-                    <a href="#" class="tag">Day of the Dead</a>
-                    <a href="#" class="tag">Mexican Culture</a>
-                    <a href="#" class="tag">Portrait Photography</a>
-                    <a href="#" class="tag">CDMX</a>
-                    <a href="#" class="tag">Cultural Photography</a>
+                    <a href="#" class="tag">{tags_post}</a>
                 </div>
 
                 <div class="share-section">
@@ -544,7 +509,7 @@ html_template = f"""
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">About</h3>
                     <p class="about-text">
-                        I'm Sarah, a passionate photographer who believes every moment deserves to be captured beautifully. Through my lens, I explore the world's hidden stories and share them with you.
+                        I’m Giorgia, a creator at heart with a love for exploring different forms of expression. From photography to knitting, painting, and ceramics.
                     </p>
                     <div class="social-links">
                         <a href="#" class="social-link">IG</a>
