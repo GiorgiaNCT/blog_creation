@@ -1,48 +1,33 @@
-import os
-from configs.blog_details import blog_post
 
-title = 'titolo'
-titolo_blog = 'PROVA'
-test_blog_post = 'blablabla'
-subtitle_post = 'sottotitolo'
-tags_post = 'tags1'
-
-current_dir = os.getcwd()
-print(current_dir)
-
-os.makedirs("posts", exist_ok=True)
-
-for html_file_name, value in blog_post.items():
-    html_template = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{value['title']}</title>
+    <title>CDMX Celebrates Día de los Muertos 2024</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
     <style>
-        *  {{
+        *  {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }}
+        }
         
-        body {{
+        body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: #2c2c2c;
             background-color: #fefefe;
-        }}
+        }
         
-        .container  {{
+        .container  {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-        }}
+        }
         
         /* Header (same as main page) */
-        header {{
+        header {
             padding: 40px 0;
             border-bottom: 1px solid #f0f0f0;
             background: rgba(255, 255, 255, 0.95);
@@ -50,35 +35,35 @@ for html_file_name, value in blog_post.items():
             position: sticky;
             top: 0;
             z-index: 100;
-        }}
+        }
         
-        .header-content  {{
+        .header-content  {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }}
+        }
         
-        .logo  {{
+        .logo  {
             font-family: 'Dancing Script', cursive;
             font-size: 2.5rem;
             font-weight: 600;
             color: #2c2c2c;
             text-decoration: none;
             transition: all 0.3s ease;
-        }}
+        }
         
-        .logo:hover  {{
+        .logo:hover  {
             color: #d4914a;
             transform: translateY(-2px);
-        }}
+        }
         
-        nav ul  {{
+        nav ul  {
             display: flex;
             list-style: none;
             gap: 40px;
-        }}
+        }
         
-        nav a {{
+        nav a {
             text-decoration: none;
             color: #2c2c2c;
             font-weight: 500;
@@ -87,13 +72,13 @@ for html_file_name, value in blog_post.items():
             letter-spacing: 1px;
             transition: all 0.3s ease;
             position: relative;
-        }}
+        }
         
-        nav a:hover {{
+        nav a:hover {
             color: #d4914a;
-        }}
+        }
         
-        nav a::after {{
+        nav a::after {
             content: '';
             position: absolute;
             width: 0;
@@ -102,15 +87,15 @@ for html_file_name, value in blog_post.items():
             left: 50%;
             background: #d4914a;
             transition: all 0.3s ease;
-        }}
+        }
         
-        nav a:hover::after {{
+        nav a:hover::after {
             width: 100%;
             left: 0;
-        }}
+        }
         
         /* Back button */
-        .back-button {{
+        .back-button {
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -120,31 +105,31 @@ for html_file_name, value in blog_post.items():
             font-weight: 500;
             margin: 40px 0 20px 0;
             transition: all 0.3s ease;
-        }}
+        }
         
-        .back-button:hover {{
+        .back-button:hover {
             color: #d4914a;
             transform: translateX(-5px);
-        }}
+        }
         
         /* Post Layout */
-        .post-layout  {{
+        .post-layout  {
             display: grid;
             grid-template-columns: 1fr 300px;
             gap: 60px;
             padding: 20px 0 60px 0;
-        }}
+        }
         
         /* Main Article */
-        .article-main  {{
+        .article-main  {
             max-width: none;
-        }}
+        }
         
-        .post-header  {{
+        .post-header  {
             margin-bottom: 40px;
-        }}
+        }
         
-        .post-meta {{
+        .post-meta {
             display: flex;
             gap: 15px;
             margin-bottom: 20px;
@@ -152,102 +137,102 @@ for html_file_name, value in blog_post.items():
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 500;
-        }}
+        }
         
-        .post-category {{
+        .post-category {
             color: #d4914a;
-        }}
+        }
         
-        .post-date {{
+        .post-date {
             color: #888;
-        }}
+        }
         
-        .post-title {{
+        .post-title {
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
             font-weight: 700;
             color: #2c2c2c;
             line-height: 1.2;
             margin-bottom: 30px;
-        }}
+        }
         
-        .post-subtitle {{
+        .post-subtitle {
             font-size: 1.3rem;
             color: #666;
             font-style: italic;
             line-height: 1.4;
             margin-bottom: 40px;
-        }}
+        }
         
         /* Featured Image */
-        .featured-image {{
+        .featured-image {
             width: 100%;
             height: auto;       /* Let height adjust automatically */
             object-fit: contain; 
             border-radius: 12px;
             margin-bottom: 50px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }}
+        }
         
         /* Content */
-        .post-content {{
+        .post-content {
             font-size: 1.1rem;
             line-height: 1.8;
             color: #444;
-        }}
+        }
         
-        .post-content p {{
+        .post-content p {
             margin-bottom: 30px;
-        }}
+        }
         
-        .post-content p:first-of-type {{
+        .post-content p:first-of-type {
             font-size: 1.2rem;
             color: #333;
             font-weight: 400;
-        }}
+        }
         
-        .post-content h3 {{
+        .post-content h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             font-weight: 600;
             color: #2c2c2c;
             margin: 50px 0 25px 0;
             line-height: 1.3;
-        }}
+        }
         
         /* Image Gallery */
-        .image-gallery {{
+        .image-gallery {
             display: grid;
             grid-template-columns: 1fr;
             gap: 40px;
             margin: 50px 0;
-        }}
+        }
         
-        .gallery-image {{
+        .gallery-image {
             width: 100%;
             height: 500px;
             object-fit: cover;
             border-radius: 12px;
             transition: all 0.5s ease;
             cursor: pointer;
-        }}
+        }
         
-        .gallery-image:hover {{
+        .gallery-image:hover {
             transform: scale(1.02);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-        }}
+        }
         
-        .image-caption {{
+        .image-caption {
             text-align: center;
             font-style: italic;
             color: #666;
             font-size: 0.95rem;
             margin-top: 15px;
             line-height: 1.5;
-        }}
+        }
         
         /* Quote */
-        .quote {{
+        .quote {
             background: linear-gradient(135deg, #f8f8f8 0%, #f1f1f1 100%);
             border-left: 4px solid #d4914a;
             padding: 40px;
@@ -257,50 +242,50 @@ for html_file_name, value in blog_post.items():
             font-size: 1.2rem;
             line-height: 1.6;
             color: #555;
-        }}
+        }
         
         /* Sidebar (same as main page) */
-        .sidebar {{
+        .sidebar {
             position: sticky;
             top: 140px;
             height: fit-content;
-        }}
+        }
         
-        .sidebar-section {{
+        .sidebar-section {
             background: #fdfdfd;
             border-radius: 12px;
             padding: 30px;
             margin-bottom: 30px;
             border: 1px solid #f5f5f5;
             transition: all 0.3s ease;
-        }}
+        }
         
-        .sidebar-section:hover {{
+        .sidebar-section:hover {
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transform: translateY(-2px);
-        }}
+        }
         
-        .sidebar-title {{
+        .sidebar-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 20px;
             color: #2c2c2c;
-        }}
+        }
         
-        .about-text {{
+        .about-text {
             font-size: 0.95rem;
             line-height: 1.7;
             color: #666;
             margin-bottom: 20px;
-        }}
+        }
         
-        .social-links {{
+        .social-links {
             display: flex;
             gap: 15px;
-        }}
+        }
         
-        .social-link  {{
+        .social-link  {
             width: 45px;
             height: 45px;
             border-radius: 50%;
@@ -313,21 +298,21 @@ for html_file_name, value in blog_post.items():
             font-weight: 600;
             transition: all 0.3s ease;
             font-size: 0.9rem;
-        }}
+        }
         
-        .social-link:hover {{
+        .social-link:hover {
             background: #d4914a;
             color: white;
             transform: translateY(-3px);
-        }}
+        }
         
-        .related-posts  {{
+        .related-posts  {
             display: flex;
             flex-direction: column;
             gap: 15px;
-        }}
+        }
         
-        .related-post {{
+        .related-post {
             display: flex;
             gap: 15px;
             text-decoration: none;
@@ -335,46 +320,46 @@ for html_file_name, value in blog_post.items():
             padding: 10px;
             border-radius: 8px;
             transition: all 0.3s ease;
-        }}
+        }
         
-        .related-post:hover  {{
+        .related-post:hover  {
             background: #f8f8f8;
-        }}
+        }
         
-        .related-post img  {{
+        .related-post img  {
             width: 60px;
             height: 60px;
             object-fit: cover;
             border-radius: 6px;
-        }}
+        }
         
-        .related-post-content  {{
+        .related-post-content  {
             flex: 1;
-        }}
+        }
         
-        .related-post-title  {{
+        .related-post-title  {
             font-size: 0.9rem;
             font-weight: 500;
             margin-bottom: 5px;
             line-height: 1.3;
-        }}
+        }
         
-        .related-post-date  {{
+        .related-post-date  {
             font-size: 0.75rem;
             color: #888;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }}
+        }
         
         /* Tags */
-        .post-tags  {{
+        .post-tags  {
             display: flex;
             gap: 10px;
             margin: 50px 0;
             flex-wrap: wrap;
-        }}
+        }
         
-        .tag  {{
+        .tag  {
             background: #f8f8f8;
             color: #666;
             padding: 8px 16px;
@@ -383,35 +368,35 @@ for html_file_name, value in blog_post.items():
             font-weight: 500;
             text-decoration: none;
             transition: all 0.3s ease;
-        }}
+        }
         
-        .tag:hover  {{
+        .tag:hover  {
             background: #d4914a;
             color: white;
-        }}
+        }
         
         /* Share buttons */
-        .share-section  {{
+        .share-section  {
             border-top: 1px solid #f0f0f0;
             padding-top: 40px;
             margin-top: 60px;
             text-align: center;
-        }}
+        }
         
-        .share-title  {{
+        .share-title  {
             font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
             margin-bottom: 20px;
             color: #2c2c2c;
-        }}
+        }
         
-        .share-buttons  {{
+        .share-buttons  {
             display: flex;
             justify-content: center;
             gap: 15px;
-        }}
+        }
         
-        .share-btn  {{
+        .share-btn  {
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -422,41 +407,41 @@ for html_file_name, value in blog_post.items():
             color: white;
             font-weight: 600;
             transition: all 0.3s ease;
-        }}
+        }
         
-        .share-btn.facebook  {{ background: #3b5998; }}
-        .share-btn.twitter  {{ background: #1da1f2; }}
-        .share-btn.pinterest  {{ background: #bd081c; }}
-        .share-btn.instagram  {{ background: #e4405f; }}
+        .share-btn.facebook  { background: #3b5998; }
+        .share-btn.twitter  { background: #1da1f2; }
+        .share-btn.pinterest  { background: #bd081c; }
+        .share-btn.instagram  { background: #e4405f; }
         
-        .share-btn:hover  {{
+        .share-btn:hover  {
             transform: translateY(-3px) scale(1.1);
-        }}
+        }
         
         /* Responsive */
-        @media (max-width: 768px) {{
-            .post-layout  {{
+        @media (max-width: 768px) {
+            .post-layout  {
                 grid-template-columns: 1fr;
                 gap: 40px;
-            }}
+            }
             
-            .post-title  {{
+            .post-title  {
                 font-size: 2.2rem;
-            }}
+            }
             
-            .featured-image  {{
+            .featured-image  {
                 height: 400px;
-            }}
+            }
             
-            .gallery-image  {{
+            .gallery-image  {
                 height: 350px;
-            }}
+            }
             
-            .sidebar  {{
+            .sidebar  {
                 position: relative;
                 top: auto;
-            }}
-        }}
+            }
+        }
     </style>
 </head>
 <body>
@@ -489,16 +474,21 @@ for html_file_name, value in blog_post.items():
                         <span class="post-category">Photography</span>
                         <span class="post-date">December 15, 2024</span>
                     </div>
-                    <h1 class="post-title">{value['title_blog']}</h1>
-                    <p class="post-subtitle">{value['subtitle_post']}</p>
+                    <h1 class="post-title">CDMX Celebrates Día de los Muertos 2024</h1>
+                    <p class="post-subtitle">Dia del los muerto parade</p>
                 </div>
 
                 <div class="post-content">
-                    {value['text_blog']}
+                    
+                    <p>Mexico City during Día de los Muertos is nothing short of magical. The streets come alive with vibrant colors, intricate altars, and the haunting beauty of Catrinas—those elegant skeletal figures that have become synonymous with this sacred celebration of life and death.</p>
+                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/6-DSCF5719.jpg" alt="Woman with flower" class="gallery-image">
+                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/9243c3184388fd8b4e9cc18c9409fbe6a1bedd35/2-DSCF5769.jpg" alt="Mask " class="gallery-image">
+
+
                 </div>
 
                 <div class="post-tags">
-                    <a href="#" class="tag">{value['tags'][0]}</a>
+                    <a href="#" class="tag">Photo</a>
                 </div>
 
                 <div class="share-section">
@@ -560,8 +550,8 @@ for html_file_name, value in blog_post.items():
 
     <script>
         // Lightbox for gallery images
-        document.querySelectorAll('.gallery-image, .featured-image').forEach(img =>  {{
-            img.addEventListener('click', function()  {{
+        document.querySelectorAll('.gallery-image, .featured-image').forEach(img =>  {
+            img.addEventListener('click', function()  {
                 const lightbox = document.createElement('div');
                 lightbox.style.cssText = `
                     position: fixed;
@@ -589,61 +579,39 @@ for html_file_name, value in blog_post.items():
                 lightbox.appendChild(lightboxImg);
                 document.body.appendChild(lightbox);
                 
-                lightbox.addEventListener('click', () =>  {{
+                lightbox.addEventListener('click', () =>  {
                     document.body.removeChild(lightbox);
-                }});
-            }});
-        }});
+                });
+            });
+        });
 
         // Share functionality
-        document.querySelectorAll('.share-btn').forEach(btn =>  {{
-            btn.addEventListener('click', function(e)  {{
+        document.querySelectorAll('.share-btn').forEach(btn =>  {
+            btn.addEventListener('click', function(e)  {
                 e.preventDefault();
                 const platform = this.classList[1];
                 const url = encodeURIComponent(window.location.href);
                 const title = encodeURIComponent(document.title);
                 
                 let shareUrl = '';
-                switch(platform)  {{
+                switch(platform)  {
                     case 'facebook':
-                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${{url}}`;
+                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
                         break;
                     case 'twitter':
-                        shareUrl = `https://twitter.com/intent/tweet?url=${{url}}&text=${{title}}`;
+                        shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
                         break;
                     case 'pinterest':
-                        shareUrl = `https://pinterest.com/pin/create/button/?url=${{url}}&description=${{title}}`;
+                        shareUrl = `https://pinterest.com/pin/create/button/?url=${url}&description=${title}`;
                         break;
-                }}
+                }
                 
-                if (shareUrl)  {{
+                if (shareUrl)  {
                     window.open(shareUrl, '_blank', 'width=600,height=400');
-                }}
-            }});
-        }});
+                }
+            });
+        });
     </script>
 </body>
 </html>
                 
-"""
-    print(html_template)
-    file_path = os.path.join(current_dir, 'posts', html_file_name)
-
-    # Write to file
-    with open(file_path, "w", encoding="utf-8") as f:
-        f.write(html_template)
-
-    print(f"Document written to: {file_path}")
-
-
-"""
-os.makedirs("posts", exist_ok=True)
-
-file_path = os.path.join(current_dir, 'posts', "blog1_test.html")
-
-# Write to file
-with open(file_path, "w", encoding="utf-8") as f:
-    f.write(html_template)
-
-print(f"Document written to: {file_path}")
-"""
