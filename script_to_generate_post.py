@@ -478,7 +478,7 @@ for html_file_name, value in blog_post.items():
     </header>
 
     <main class="container">
-        <a href="index.html" class="back-button">
+        <a href="./index.html" class="back-button">
             ← Back to Blog
         </a>
         
