@@ -1,4 +1,7 @@
+import os
+from configs.blog_details import blog_post
 
+start_html_index = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -419,64 +422,9 @@
     <main class="container">
         <div class="main-layout">
             <div class="blog-posts">
+"""
 
-                <article class="post">
-                    <div class="post-header">
-                        <div class="post-meta">
-                            <span class="post-category">Photography</span>
-                            <span class="post-date">December 15, 2024</span>
-                        </div>
-                        <h2 class="post-title">CDMX Celebrates Día de los Muertos 2024</h2>
-                    </div>
-                    
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/6-DSCF5719.jpg" alt="Tokyo street in rain" class="post-image">
-                    <p class="post-excerpt">
-                        Last year I experienced the vibrant Día de los Muertos parade in Mexico, where music, colors, and tradition filled the streets. It was a powerful celebration of life, memory, and culture.
-                    </p>
-        
-                    <a href="posts/cdmx_dia_de_los_muertos_2024_new.html" class="continue-reading">Continue Reading</a>
-                    <div class="post-divider"></div>
-                </article>
-
-    
-                <article class="post">
-                    <div class="post-header">
-                        <div class="post-meta">
-                            <span class="post-category">Photography</span>
-                            <span class="post-date">December 15, 2024</span>
-                        </div>
-                        <h2 class="post-title">Inside Tepito: Mexico City’s Legendary Market</h2>
-                    </div>
-                    
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/42-DSCF5406.jpg" alt="Portrait of elderly hands" class="post-image">
-                    <p class="post-excerpt">
-                        Step into Tepito, Mexico City’s most legendary market, where history, tradition, and street culture collide. This tour unveils the hidden stories and vibrant spirit behind its bustling alleys.
-                    </p>
-        
-                    <a href="posts/tepito_market.html" class="continue-reading">Continue Reading</a>
-                    <div class="post-divider"></div>
-                </article>
-
-    
-                <article class="post">
-                    <div class="post-header">
-                        <div class="post-meta">
-                            <span class="post-category">Photography</span>
-                            <span class="post-date">December 15, 2024</span>
-                        </div>
-                        <h2 class="post-title">CDMX After Dark: Nighttime Stories in the City</h2>
-                    </div>
-                    
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/9f96cf159138287f43ba1fe4db104b1fed37fdea/23-DSCF5579.jpg" alt="Portrait of elderly hands" class="post-image">
-                    <p class="post-excerpt">
-                       The streets of Mexico City come alive after dark, revealing lights, shadows, and hidden corners. A nighttime journey through CDMX captured through my lens.
-                    </p>
-        
-                    <a href="posts/cdmx_by_night.html" class="continue-reading">Continue Reading</a>
-                    <div class="post-divider"></div>
-                </article>
-
-    
+end_html_file = """
             </div>
 
             <aside class="sidebar">
@@ -661,3 +609,39 @@
     </script>
 </body>
 </html>
+"""
+
+total_post = start_html_index
+
+for post in blog_post:
+
+    post_template = f"""
+                <article class="post">
+                    <div class="post-header">
+                        <div class="post-meta">
+                            <span class="post-category">Photography</span>
+                            <span class="post-date">December 15, 2024</span>
+                        </div>
+                        <h2 class="post-title">{post.title}</h2>
+                    </div>
+                    {post.preview}
+                    <a href="posts/{post.filename}" class="continue-reading">Continue Reading</a>
+                    <div class="post-divider"></div>
+                </article>
+
+    """
+
+    total_post = total_post + post_template
+
+
+total_post = total_post + end_html_file
+
+current_dir = os.getcwd()
+print(current_dir)
+file_path = os.path.join(current_dir, 'index.html')
+
+# Write to file
+with open(file_path, "w", encoding="utf-8") as f:
+    f.write(total_post)
+
+print(f"Document written to: {file_path}")
