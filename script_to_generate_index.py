@@ -620,7 +620,7 @@ for post in blog_post:
                     <div class="post-header">
                         <div class="post-meta">
                             <span class="post-category">Photography</span>
-                            <span class="post-date">December 15, 2024</span>
+                            <span class="post-date">{post.date.strftime("%B %d, %Y")}</span>
                         </div>
                         <h2 class="post-title">{post.title}</h2>
                     </div>
