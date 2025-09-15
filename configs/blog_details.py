@@ -18,6 +18,27 @@ blog_post_old = {
 
 blog_post = [
     Post(
+        filename='films_mexico.html',
+        title='Unfolding Mexico: A 35mm Journey',
+        blog_title='Unfolding Mexico: A 35mm Journey',
+        blog_subtitle='A journey through Mexico’s colors, textures, and spirit — captured only on film.',
+        blog_content="""
+                    <p>Shot entirely on analog film, this collection reveals Mexico in its most timeless form, where imperfections become part of the story. Each frame carries the warmth of the country’s light, its vibrant streets, and the soul of its people.</p>
+                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760011.jpg" alt="Woman with flower" class="featured-image">
+                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760018.jpg" alt="Mask " class="featured-image">
+                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760019.jpg" alt="Mask " class="featured-image">
+                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760025.jpg" alt="Mask " class="featured-image">
+        """,
+        preview="""
+                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/6-DSCF5719.jpg" alt="Tokyo street in rain" class="post-image">
+                    <p class="post-excerpt">
+                        Last year I experienced the vibrant Día de los Muertos parade in Mexico, where music, colors, and tradition filled the streets. It was a powerful celebration of life, memory, and culture.
+                    </p>
+        """,
+        tags=['Photo'],
+        date=date(2025, 9, 15)
+    ),
+    Post(
         filename='catrinas_photoshoot.html',
         title='Catrinas in CDMX: A Día de los Muertos Photoshoot',
         blog_title='Catrinas in CDMX: A Día de los Muertos Photoshoot',
@@ -128,5 +149,5 @@ blog_post = [
         """,
         tags=['Photo'],
         date=date(2025, 9, 12)
-    ),
+    )
 ]
