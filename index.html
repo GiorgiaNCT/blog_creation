@@ -107,6 +107,7 @@
             display: flex;
             flex-direction: column;
             gap: 80px;
+            max-width: 800px;
         }
         
         .post {
@@ -406,9 +407,9 @@
                 <a href="#" class="logo">Giorgia - photography blog</a>
                 <nav>
                     <ul>
-                        <li><a href="#">Photo</a></li>
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Creations</a></li>
+                        <li><a href="#" class="filter-link" data-filter="all">Home</a></li>
+                        <li><a href="#" class="filter-link" data-filter="Photos">Photos</a></li>
+                        <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
                         <li><a href="#">About</a></li>
                     </ul>
                 </nav>
@@ -420,7 +421,7 @@
         <div class="main-layout">
             <div class="blog-posts">
 
-                <article class="post">
+                <article class="post" data-category="Photos">
                     <div class="post-header">
                         <div class="post-meta">
                             <span class="post-category">Photography</span>
@@ -439,7 +440,7 @@
                 </article>
 
     
-                <article class="post">
+                <article class="post" data-category="Photos">
                     <div class="post-header">
                         <div class="post-meta">
                             <span class="post-category">Photography</span>
@@ -458,7 +459,7 @@
                 </article>
 
     
-                <article class="post">
+                <article class="post" data-category="Photos">
                     <div class="post-header">
                         <div class="post-meta">
                             <span class="post-category">Photography</span>
@@ -477,7 +478,7 @@
                 </article>
 
     
-                <article class="post">
+                <article class="post" data-category="Photos">
                     <div class="post-header">
                         <div class="post-meta">
                             <span class="post-category">Photography</span>
@@ -496,7 +497,7 @@
                 </article>
 
     
-                <article class="post">
+                <article class="post" data-category="Creations">
                     <div class="post-header">
                         <div class="post-meta">
                             <span class="post-category">Photography</span>
@@ -551,28 +552,32 @@
                 <!-- Related Posts -->
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">You Might Also Like</h3>
-                    <div class="related-posts">
-                        <a href="#" class="related-post">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=60&h=60&fit=crop&auto=format" alt="Mountain sunset">
+                    <div class="related-posts">                
+
+        <a href="posts/films_mexico.html" class="related-post">
+                            <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760011.jpg" alt="Mountain sunset">
                             <div class="related-post-content">
-                                <div class="related-post-title">Chasing Light in Patagonia</div>
-                                <div class="related-post-date">Nov 28, 2024</div>
+                                <div class="related-post-title">Unfolding Mexico: A 35mm Journey</div>
+                                <div class="related-post-date">September 15, 2025</div>
                             </div>
-                        </a>
-                        <a href="#" class="related-post">
-                            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=60&h=60&fit=crop&auto=format" alt="City lights">
+        </a>
+    
+        <a href="posts/catrinas_photoshoot.html" class="related-post">
+                            <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/60-DSCF3191.jpg" alt="Mountain sunset">
                             <div class="related-post-content">
-                                <div class="related-post-title">Urban Nights in Seoul</div>
-                                <div class="related-post-date">Nov 25, 2024</div>
+                                <div class="related-post-title">Catrinas in CDMX: A Día de los Muertos Photoshoot</div>
+                                <div class="related-post-date">September 15, 2025</div>
                             </div>
-                        </a>
-                        <a href="#" class="related-post">
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=60&h=60&fit=crop&auto=format" alt="Ocean waves">
+        </a>
+    
+        <a href="posts/cdmx_dia_de_los_muertos_2024_new.html" class="related-post">
+                            <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/6-DSCF5719.jpg" alt="Mountain sunset">
                             <div class="related-post-content">
-                                <div class="related-post-title">Ocean Moods in Iceland</div>
-                                <div class="related-post-date">Nov 22, 2024</div>
+                                <div class="related-post-title">CDMX Celebrates Día de los Muertos 2024</div>
+                                <div class="related-post-date">September 14, 2025</div>
                             </div>
-                        </a>
+        </a>
+    
                     </div>
                 </div>
             </aside>
@@ -695,6 +700,26 @@
             post.style.transform = 'translateY(30px)';
             post.style.transition = 'all 0.8s ease-out';
             observer.observe(post);
+        });
+
+        const filterLinks = document.querySelectorAll('.filter-link');
+
+        filterLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const filter = link.getAttribute('data-filter');
+        
+                posts.forEach(post => {
+                    const category = post.getAttribute('data-category');
+
+                    if (filter === "all" || category === filter) {
+                        post.style.display = 'block';
+                        post.style.animation = 'fadeInUp 0.5s ease-out';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            });
         });
     </script>
 </body>

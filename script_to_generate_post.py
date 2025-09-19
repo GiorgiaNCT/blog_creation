@@ -471,7 +471,6 @@ for post in blog_post:
                     <ul>
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="#">Photo</a></li>
-                        <li><a href="#">Travel</a></li>
                         <li><a href="#">Creations</a></li>
                         <li><a href="#">About</a></li>
                     </ul>

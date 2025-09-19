@@ -9,5 +9,7 @@ class Post:
     blog_subtitle: str
     blog_content: str
     preview: str
+    main_photo: str
+    category: str
     tags: list[str]
     date: date

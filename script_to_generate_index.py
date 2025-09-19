@@ -110,6 +110,7 @@ start_html_index = """
             display: flex;
             flex-direction: column;
             gap: 80px;
+            max-width: 800px;
         }
         
         .post {
@@ -409,9 +410,9 @@ start_html_index = """
                 <a href="#" class="logo">Giorgia - photography blog</a>
                 <nav>
                     <ul>
-                        <li><a href="#">Photo</a></li>
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Creations</a></li>
+                        <li><a href="#" class="filter-link" data-filter="all">Home</a></li>
+                        <li><a href="#" class="filter-link" data-filter="Photos">Photos</a></li>
+                        <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
                         <li><a href="#">About</a></li>
                     </ul>
                 </nav>
@@ -424,7 +425,7 @@ start_html_index = """
             <div class="blog-posts">
 """
 
-end_html_file = """
+middle_html_file = """
             </div>
 
             <aside class="sidebar">
@@ -461,28 +462,10 @@ end_html_file = """
                 <!-- Related Posts -->
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">You Might Also Like</h3>
-                    <div class="related-posts">
-                        <a href="#" class="related-post">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=60&h=60&fit=crop&auto=format" alt="Mountain sunset">
-                            <div class="related-post-content">
-                                <div class="related-post-title">Chasing Light in Patagonia</div>
-                                <div class="related-post-date">Nov 28, 2024</div>
-                            </div>
-                        </a>
-                        <a href="#" class="related-post">
-                            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=60&h=60&fit=crop&auto=format" alt="City lights">
-                            <div class="related-post-content">
-                                <div class="related-post-title">Urban Nights in Seoul</div>
-                                <div class="related-post-date">Nov 25, 2024</div>
-                            </div>
-                        </a>
-                        <a href="#" class="related-post">
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=60&h=60&fit=crop&auto=format" alt="Ocean waves">
-                            <div class="related-post-content">
-                                <div class="related-post-title">Ocean Moods in Iceland</div>
-                                <div class="related-post-date">Nov 22, 2024</div>
-                            </div>
-                        </a>
+                    <div class="related-posts">                
+"""
+
+end_html_file = """
                     </div>
                 </div>
             </aside>
@@ -606,6 +589,26 @@ end_html_file = """
             post.style.transition = 'all 0.8s ease-out';
             observer.observe(post);
         });
+
+        const filterLinks = document.querySelectorAll('.filter-link');
+
+        filterLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const filter = link.getAttribute('data-filter');
+        
+                posts.forEach(post => {
+                    const category = post.getAttribute('data-category');
+
+                    if (filter === "all" || category === filter) {
+                        post.style.display = 'block';
+                        post.style.animation = 'fadeInUp 0.5s ease-out';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
@@ -616,7 +619,7 @@ total_post = start_html_index
 for post in blog_post:
 
     post_template = f"""
-                <article class="post">
+                <article class="post" data-category="{post.category}">
                     <div class="post-header">
                         <div class="post-meta">
                             <span class="post-category">Photography</span>
@@ -634,6 +637,21 @@ for post in blog_post:
     total_post = total_post + post_template
 
 
+total_post = total_post + middle_html_file
+
+for i in range(3):
+    
+    post = blog_post[i]
+    related_post_template = f"""
+        <a href="posts/{post.filename}" class="related-post">
+                            <img src="{post.main_photo}" alt="Mountain sunset">
+                            <div class="related-post-content">
+                                <div class="related-post-title">{post.title}</div>
+                                <div class="related-post-date">{post.date.strftime("%B %d, %Y")}</div>
+                            </div>
+        </a>
+    """
+    total_post = total_post + related_post_template
 total_post = total_post + end_html_file
 
 current_dir = os.getcwd()
