@@ -110,6 +110,7 @@ start_html_index = """
             display: flex;
             flex-direction: column;
             gap: 80px;
+            max-width: 800px;
         }
         
         .post {
@@ -618,7 +619,7 @@ total_post = start_html_index
 for post in blog_post:
 
     post_template = f"""
-                <article class="post" data-category="{post.category}>
+                <article class="post" data-category="{post.category}">
                     <div class="post-header">
                         <div class="post-meta">
                             <span class="post-category">Photography</span>
