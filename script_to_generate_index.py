@@ -630,6 +630,7 @@ for i in range(3):
                             </div>
         </a>
     """
+    total_post = total_post + related_post_template
 total_post = total_post + end_html_file
 
 current_dir = os.getcwd()
