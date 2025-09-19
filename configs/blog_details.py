@@ -36,6 +36,7 @@ blog_post = [
                     </p>
         """,
         main_photo="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760011.jpg",
+        category="Photos",
         tags=['Photo'],
         date=date(2025, 9, 15)
     ),
@@ -90,6 +91,7 @@ blog_post = [
                     </p>
         """,
         main_photo="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/60-DSCF3191.jpg",
+        category="Photos",
         tags=['Photo'],
         date=date(2025, 9, 15)
     ),
@@ -110,6 +112,7 @@ blog_post = [
                     </p>
         """,
         main_photo="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/6-DSCF5719.jpg",
+        category="Photos",
         tags=['Photo'],
         date=date(2025, 9, 14)
     ),
@@ -132,6 +135,7 @@ blog_post = [
                     </p>
         """,
         main_photo="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/42-DSCF5406.jpg",
+        category="Photos",
         tags=['Photo'],
         date=date(2025, 9, 13)
     ),
@@ -152,6 +156,7 @@ blog_post = [
                     </p>
         """,
         main_photo="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/9f96cf159138287f43ba1fe4db104b1fed37fdea/23-DSCF5579.jpg",
+        category="Creations",
         tags=['Photo'],
         date=date(2025, 9, 12)
     )

@@ -409,9 +409,9 @@ start_html_index = """
                 <a href="#" class="logo">Giorgia - photography blog</a>
                 <nav>
                     <ul>
-                        <li><a href="#">Photo</a></li>
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Creations</a></li>
+                        <li><a href="#" class="filter-link" data-filter="all">Home</a></li>
+                        <li><a href="#" class="filter-link" data-filter="Photos">Photos</a></li>
+                        <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
                         <li><a href="#">About</a></li>
                     </ul>
                 </nav>
@@ -588,6 +588,26 @@ end_html_file = """
             post.style.transition = 'all 0.8s ease-out';
             observer.observe(post);
         });
+
+        const filterLinks = document.querySelectorAll('.filter-link');
+
+        filterLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const filter = link.getAttribute('data-filter');
+        
+                posts.forEach(post => {
+                    const category = post.getAttribute('data-category');
+
+                    if (filter === "all" || category === filter) {
+                        post.style.display = 'block';
+                        post.style.animation = 'fadeInUp 0.5s ease-out';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
@@ -598,7 +618,7 @@ total_post = start_html_index
 for post in blog_post:
 
     post_template = f"""
-                <article class="post">
+                <article class="post" data-category="{post.category}>
                     <div class="post-header">
                         <div class="post-meta">
                             <span class="post-category">Photography</span>
