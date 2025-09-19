@@ -35,6 +35,7 @@ blog_post = [
                     hot entirely on analog film, this collection reveals Mexico in its most timeless form, where imperfections become part of the story. Each frame carries the warmth of the country’s light, its vibrant streets, and the soul of its people.
                     </p>
         """,
+        main_photo="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760011.jpg",
         tags=['Photo'],
         date=date(2025, 9, 15)
     ),
@@ -88,6 +89,7 @@ blog_post = [
                         A vibrant homage to Día de los Muertos in CDMX, where Catrinas embody elegance and tradition. This photoshoot captures the spirit of remembrance and celebration.                    
                     </p>
         """,
+        main_photo="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/60-DSCF3191.jpg",
         tags=['Photo'],
         date=date(2025, 9, 15)
     ),
@@ -107,6 +109,7 @@ blog_post = [
                         Last year I experienced the vibrant Día de los Muertos parade in Mexico, where music, colors, and tradition filled the streets. It was a powerful celebration of life, memory, and culture.
                     </p>
         """,
+        main_photo="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/6-DSCF5719.jpg",
         tags=['Photo'],
         date=date(2025, 9, 14)
     ),
@@ -128,6 +131,7 @@ blog_post = [
                         Step into Tepito, Mexico City’s most legendary market, where history, tradition, and street culture collide. This tour unveils the hidden stories and vibrant spirit behind its bustling alleys.
                     </p>
         """,
+        main_photo="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/42-DSCF5406.jpg",
         tags=['Photo'],
         date=date(2025, 9, 13)
     ),
@@ -147,6 +151,7 @@ blog_post = [
                        The streets of Mexico City come alive after dark, revealing lights, shadows, and hidden corners. A nighttime journey through CDMX captured through my lens.
                     </p>
         """,
+        main_photo="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/9f96cf159138287f43ba1fe4db104b1fed37fdea/23-DSCF5579.jpg",
         tags=['Photo'],
         date=date(2025, 9, 12)
     )
