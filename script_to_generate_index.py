@@ -375,30 +375,67 @@ start_html_index = """
         /* Responsive */
         @media (max-width: 768px) {
             .main-layout {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .header-content {
-                flex-direction: column;
+                grid-template-columns: 3fr 1fr; /* keep side by side even on phones */
                 gap: 20px;
             }
-            
+
+            .container {
+                padding: 0 10px;
+            }
+
+            .sidebar {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+
+            .post-title {
+                font-size: 1.4rem;
+            }
+
+            .post-image {
+                height: 220px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
             nav ul {
                 gap: 20px;
             }
-            
-            .post-title {
-                font-size: 1.8rem;
+
+            .logo {
+                font-size: 2rem;
             }
-            
-            .post-image {
-                height: 300px;
+        }
+
+        /* Collapsible sidebar on very small screens */
+        @media (max-width: 600px) {
+            .sidebar-toggle {
+                display: block;
             }
-            
+
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
             .sidebar {
-                position: relative;
-                top: auto;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 280px;
+                height: 100%;
+                background: #fff;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                padding: 20px;
+                transition: right 0.3s ease-in-out;
+                z-index: 2000;
+            }
+
+            .sidebar.open {
+                right: 0;
             }
         }
     </style>
@@ -473,6 +510,27 @@ end_html_file = """
     </main>
 
     <script>
+
+        // Sidebar toggle for small screens
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
