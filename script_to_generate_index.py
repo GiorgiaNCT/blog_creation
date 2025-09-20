@@ -372,33 +372,48 @@ start_html_index = """
             }
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            .main-layout {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .header-content {
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
                 flex-direction: column;
-                gap: 20px;
             }
-            
+            .main-content {
+                margin-right: 0;
+            }
+        }
+        @media (max-width: 768px) {
             nav ul {
-                gap: 20px;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
             }
-            
-            .post-title {
-                font-size: 1.8rem;
+            nav a {
+                font-size: 1rem;
+                padding: 8px 0;
             }
-            
-            .post-image {
-                height: 300px;
+            .post img.post-image {
+                height: 200px;
             }
-            
+            .post h2 {
+                font-size: 1.4rem;
+                text-align: center;
+            }
+            .post p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
             .sidebar {
-                position: relative;
-                top: auto;
+                width: 100%;
+                margin-top: 20px;
+            }
+            .container {
+                padding: 0 10px;
+            }
+            .header-content {
+                text-align: center;
+            }
+            .logo {
+                font-size: 2rem;
             }
         }
     </style>

@@ -369,33 +369,48 @@
             }
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            .main-layout {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .header-content {
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
                 flex-direction: column;
-                gap: 20px;
             }
-            
+            .main-content {
+                margin-right: 0;
+            }
+        }
+        @media (max-width: 768px) {
             nav ul {
-                gap: 20px;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
             }
-            
-            .post-title {
-                font-size: 1.8rem;
+            nav a {
+                font-size: 1rem;
+                padding: 8px 0;
             }
-            
-            .post-image {
-                height: 300px;
+            .post img.post-image {
+                height: 200px;
             }
-            
+            .post h2 {
+                font-size: 1.4rem;
+                text-align: center;
+            }
+            .post p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
             .sidebar {
-                position: relative;
-                top: auto;
+                width: 100%;
+                margin-top: 20px;
+            }
+            .container {
+                padding: 0 10px;
+            }
+            .header-content {
+                text-align: center;
+            }
+            .logo {
+                font-size: 2rem;
             }
         }
     </style>
@@ -432,7 +447,7 @@
                     
                     <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760011.jpg" alt="Tokyo street in rain" class="post-image">
                     <p class="post-excerpt">
-                    hot entirely on analog film, this collection reveals Mexico in its most timeless form, where imperfections become part of the story. Each frame carries the warmth of the country’s light, its vibrant streets, and the soul of its people.
+                    Shot entirely on analog film, this collection reveals Mexico in its most timeless form, where imperfections become part of the story. Each frame carries the warmth of the country’s light, its vibrant streets, and the soul of its people.
                     </p>
         
                     <a href="posts/films_mexico.html" class="continue-reading">Continue Reading</a>
