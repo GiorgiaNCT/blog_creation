@@ -714,7 +714,9 @@ for post in blog_post:
                             <span class="post-category">Photography</span>
                             <span class="post-date">{post.date.strftime("%B %d, %Y")}</span>
                         </div>
-                        <h2 class="post-title">{post.title}</h2>
+                        <h2 class="post-title">
+                            <a href="posts/{post.filename}" class="post-link">{post.title}</a>
+                        </h2>
                     </div>
                     {post.preview}
                     <a href="posts/{post.filename}" class="continue-reading">Continue Reading</a>
