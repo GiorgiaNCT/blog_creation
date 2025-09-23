@@ -59,7 +59,23 @@ start_html_index = """
             color: #d4914a;
             transform: translateY(-2px);
         }
-        
+
+        /* Mobile Sidebar Toggle */
+        .sidebar-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2c2c2c;
+            cursor: pointer;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-toggle:hover {
+            color: #d4914a;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -374,9 +390,13 @@ start_html_index = """
         
         /* Responsive */
         @media (max-width: 768px) {
+            .sidebar-toggle {
+                display: block;
+            }
+
             .main-layout {
-                grid-template-columns: 3fr 1fr; /* keep side by side even on phones */
-                gap: 20px;
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .container {
@@ -384,8 +404,22 @@ start_html_index = """
             }
 
             .sidebar {
-                padding: 15px;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 280px;
+                height: 100%;
+                background: #fff;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                padding: 20px;
+                transition: right 0.3s ease-in-out;
+                z-index: 2000;
                 font-size: 0.9rem;
+            }
+
+            .sidebar.open {
+                right: 0;
             }
 
             .post-title {
@@ -409,35 +443,6 @@ start_html_index = """
                 font-size: 2rem;
             }
         }
-
-        /* Collapsible sidebar on very small screens */
-        @media (max-width: 600px) {
-            .sidebar-toggle {
-                display: block;
-            }
-
-            .main-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                max-width: 280px;
-                height: 100%;
-                background: #fff;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-                padding: 20px;
-                transition: right 0.3s ease-in-out;
-                z-index: 2000;
-            }
-
-            .sidebar.open {
-                right: 0;
-            }
-        }
     </style>
 </head>
 <body>
@@ -453,6 +458,7 @@ start_html_index = """
                         <li><a href="#">About</a></li>
                     </ul>
                 </nav>
+                <button class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
             </div>
         </div>
     </header>
