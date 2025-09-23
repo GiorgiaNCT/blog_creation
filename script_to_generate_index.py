@@ -186,6 +186,16 @@ start_html_index = """
             color: #d4914a;
             cursor: pointer;
         }
+
+        .post-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .post-title a:hover {
+            color: #d4914a; 
+        }
         
         .post-image {
             width: 100%;
