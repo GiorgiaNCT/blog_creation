@@ -76,6 +76,23 @@ start_html_index = """
             color: #d4914a;
         }
 
+        .sidebar-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2c2c2c;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 2001;
+        }
+
+        .sidebar-close:hover {
+            color: #d4914a;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -416,6 +433,7 @@ start_html_index = """
                 transition: right 0.3s ease-in-out;
                 z-index: 2000;
                 font-size: 0.9rem;
+                overflow-y: auto;
             }
 
             .sidebar.open {
@@ -472,6 +490,7 @@ middle_html_file = """
             </div>
 
             <aside class="sidebar">
+                <button class="sidebar-close" aria-label="Close sidebar">&times;</button>
                 <!-- Search -->
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">Search</h3>
@@ -520,9 +539,15 @@ end_html_file = """
         // Sidebar toggle for small screens
         const sidebarToggle = document.querySelector('.sidebar-toggle');
         const sidebar = document.querySelector('.sidebar');
+        const sidebarClose = document.querySelector('.sidebar-close');
         if (sidebarToggle) {
             sidebarToggle.addEventListener('click', () => {
                 sidebar.classList.toggle('open');
+            });
+        }
+        if (sidebarClose) {
+            sidebarClose.addEventListener('click', () => {
+                sidebar.classList.remove('open');
             });
         }
 
