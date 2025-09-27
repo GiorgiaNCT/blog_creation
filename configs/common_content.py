@@ -623,6 +623,13 @@ STYLE_HTML = """
         .share-btn:hover  {
             transform: translateY(-3px) scale(1.1);
         }
+
+        /* logo */
+        .logo img {
+            height: 50px; /* adjust as needed */
+            width: auto;
+            display: block;
+        }
         
         /* Responsive */
         @media (max-width: 768px) {
@@ -689,7 +696,9 @@ HEADER_HTML = """
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">Giorgia - photography blog</a>
+                <a href="#" class="logo">
+                    <img src="img/PHOTO-2025-09-08-20-33-07.jpg" alt="Giorgia Photography Blog Logo" class="logo-img">
+                </a>
                 <nav>
                     <ul>
                         <li><a href="#" class="filter-link" data-filter="all">Home</a></li>
