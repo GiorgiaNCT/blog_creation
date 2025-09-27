@@ -490,7 +490,7 @@ HEADER_HTML = """
         <div class="container">
             <div class="header-content">
                 <a href="#" class="logo">
-                    <img src="img/PHOTO-2025-09-08-20-33-07.jpg" alt="Giorgia Photography Blog Logo" class="logo-img">
+                    <img src="../img/PHOTO-2025-09-08-20-33-07.jpg" alt="Giorgia Photography Blog Logo" class="logo-img">
                     <span class="logo-text">Giorgia - photography blog</span>
                 </a>
                 <nav>
