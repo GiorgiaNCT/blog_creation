@@ -28,7 +28,9 @@ for post in blog_post:
     
     html_template = html_template + STYLE_HTML
 
-    html_template = html_template + HEADER_HTML    
+    # Adjust image paths for posts directory
+    adjusted_header = HEADER_HTML.replace('img/', '../img/')
+    html_template = html_template + adjusted_header
 
     html_template = html_template + f"""
 
