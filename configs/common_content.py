@@ -123,7 +123,7 @@ STYLE_HTML = """
         }
         
         /* Main Layout */
-        .main-layout {
+        .main-layout, .post-layout {
             display: grid;
             grid-template-columns: 1fr 300px;
             gap: 60px;
@@ -413,7 +413,7 @@ STYLE_HTML = """
                 display: block;
             }
 
-            .main-layout {
+            .main-layout, .post-layout {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
