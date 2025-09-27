@@ -710,4 +710,4 @@ def get_related_post():
 
         SIDEBAR_HTML_COMMON = SIDEBAR_HTML_COMMON + related_post_template
 
-        return SIDEBAR_HTML_COMMON
+    return SIDEBAR_HTML_COMMON
