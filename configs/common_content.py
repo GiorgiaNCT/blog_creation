@@ -1,12 +1,6 @@
+from configs.blog_details import blog_post
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catrinas in CDMX: A Día de los Muertos Photoshoot</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-    
+STYLE_HTML = """
    <style>
         * {
             margin: 0;
@@ -687,7 +681,9 @@
             }
         }
     </style>
+"""
 
+HEADER_HTML = """
 </head>
 <body>
     <header>
@@ -706,144 +702,9 @@
             </div>
         </div>
     </header>
+"""
 
-
-    <main class="container">
-        <a href="../index.html" class="back-button">
-            ← Back to Blog
-        </a>
-        
-        <div class="post-layout">
-            <article class="article-main">
-                <div class="post-header">
-                    <div class="post-meta">
-                        <span class="post-category">Photos</span>
-                        <span class="post-date">September 15, 2025</span>
-                    </div>
-                    <h1 class="post-title">Catrinas in CDMX: A Día de los Muertos Photoshoot</h1>
-                    <p class="post-subtitle">A vibrant homage to Día de los Muertos in CDMX, where Catrinas embody elegance and tradition. This photoshoot captures the spirit of remembrance and celebration.</p>
-                </div>
-
-                <div class="post-content">
-                    
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/60-DSCF3191.jpg" alt="Catrina Day of the Dead makeup" class="featured-image">
-
-                    <p>Mexico City during Día de los Muertos is nothing short of magical. The streets come alive with vibrant colors, intricate altars, and the haunting beauty of Catrinas—those elegant skeletal figures that have become synonymous with this sacred celebration of life and death.</p>
-
-                    <p>This photoshoot was born from a deep fascination with Mexican culture and the profound beauty found in their approach to mortality. Unlike many cultures that fear death, Mexicans embrace it as a natural part of life's cycle, celebrating their departed loved ones with joy, color, and remembrance.</p>
-
-                    <h3>The Art of Transformation</h3>
-                    
-                    <p>Working with local makeup artists in CDMX was an incredible experience. Each Catrina look took hours to complete, with artists meticulously painting intricate designs that honor traditional Day of the Dead aesthetics while adding their own contemporary flair. The attention to detail was extraordinary—from the delicate flower patterns around the eyes to the ornate designs that seemed to dance across the models' faces.</p>
-
-                    <div class="image-gallery">
-                        <div>
-                            <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/58-DSCF5165.jpg" alt="Catrina portrait with flowers" class="gallery-image">
-                            <p class="image-caption">The intricate makeup process takes several hours, with artists carefully crafting each detail by hand.</p>
-                        </div>
-                    </div>
-
-                    <div class="quote">
-                        "Death is not the opposite of life, but a part of it. In Mexico, we don't mourn the dead—we celebrate their journey and keep their memory alive through art, food, and tradition."
-                    </div>
-
-                    <h3>Cultural Significance</h3>
-                    
-                    <p>The Catrina, originally created by artist José Guadalupe Posada and later immortalized by Diego Rivera, represents the democratic nature of death—it comes to rich and poor alike. During our shoot, I was struck by how the models embodied this spirit, transforming into these ethereal beings that seemed to bridge the world of the living and the dead.</p>
-                    
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/f54ee20ceaa0c3c54585d38fee1982d309d0e0fa/55-DSCF5246.jpg" alt="Catrina 2" class="featured-image">
-                    
-                    <p>Each photograph in this series aims to capture not just the visual beauty of the Catrina tradition, but the deeper cultural significance it holds. These images are a testament to Mexico's unique relationship with mortality—one that finds beauty in the macabre and celebrates life through the acknowledgment of death.</p>
-
-                    <h3>Behind the Scenes</h3>
-                    
-                    <p>Shooting in Mexico City's historic center provided the perfect backdrop for this project. The colonial architecture, with its weathered stones and baroque details, complemented the timeless elegance of the Catrina aesthetic. We worked primarily during the golden hour, when the warm light softened the dramatic makeup and created an otherworldly atmosphere.</p>
-                    
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/f54ee20ceaa0c3c54585d38fee1982d309d0e0fa/62-DSCF3180.jpg" alt="Catrina 2" class="featured-image">
-                    
-                    <p>The collaboration with local artists was invaluable—not only for their technical expertise but for their cultural knowledge and respect for the traditions we were documenting. This wasn't just a photoshoot; it was a cultural exchange that deepened my understanding of Mexican heritage and the beautiful complexity of Día de los Muertos.</p>
-
-        
-                </div>
-
-                <div class="post-tags">
-                    <a href="#" class="tag">Photo</a>
-                </div>
-
-                <div class="share-section">
-                    <h3 class="share-title">Share This Story</h3>
-                    <div class="share-buttons">
-                        <a href="#" class="share-btn facebook">FB</a>
-                        <a href="#" class="share-btn twitter">TW</a>
-                        <a href="#" class="share-btn pinterest">PI</a>
-                        <a href="#" class="share-btn instagram">IG</a>
-                    </div>
-                </div>
-            </article>
-    
-
-            <aside class="sidebar">
-                <button class="sidebar-close" aria-label="Close sidebar">&times;</button>
-                <!-- Search -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">Search</h3>
-                    <input type="text" placeholder="Search photos..." class="search-box">
-                </div>
-
-                <!-- About -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">About</h3>
-                    <p class="about-text">
-                        I’m Giorgia, a creator at heart with a love for exploring different forms of expression. From photography to knitting, painting, and ceramics.
-                    </p>
-                </div>
-
-                <!-- Newsletter -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">Newsletter</h3>
-                    <p class="about-text" style="font-size: 0.9rem; margin-bottom: 20px;">
-                        Get weekly photo stories and tips delivered to your inbox.
-                    </p>
-                    <input type="email" placeholder="Your email..." class="newsletter-input">
-                    <button class="newsletter-btn">Subscribe</button>
-                </div>
-
-                <!-- Related Posts -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">You Might Also Like</h3>
-                    <div class="related-posts">                
-    
-            <a href="posts/films_mexico_v2.html" class="related-post">
-                <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760011.jpg" alt="Mountain sunset">
-                <div class="related-post-content">
-                    <div class="related-post-title">Unfolding Mexico: A 35mm Journey</div>
-                    <div class="related-post-date">September 15, 2025</div>
-                </div>
-            </a>
-        
-            <a href="posts/catrinas_photoshoot.html" class="related-post">
-                <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/60-DSCF3191.jpg" alt="Mountain sunset">
-                <div class="related-post-content">
-                    <div class="related-post-title">Catrinas in CDMX: A Día de los Muertos Photoshoot</div>
-                    <div class="related-post-date">September 15, 2025</div>
-                </div>
-            </a>
-        
-            <a href="posts/cdmx_dia_de_los_muertos_2024_new.html" class="related-post">
-                <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/6-DSCF5719.jpg" alt="Mountain sunset">
-                <div class="related-post-content">
-                    <div class="related-post-title">CDMX Celebrates Día de los Muertos 2024</div>
-                    <div class="related-post-date">September 14, 2025</div>
-                </div>
-            </a>
-        
-                    </div>
-                </div>
-            </aside>
-        </div>
-    </main>
-
-    
+SCRIPT_HTML = """
     <script>
 
         // Sidebar toggle for small screens
@@ -1011,3 +872,59 @@
     </script>
 </body>
 </html>
+"""
+
+
+
+def get_related_post():
+
+    SIDEBAR_HTML_COMMON = """
+
+            <aside class="sidebar">
+                <button class="sidebar-close" aria-label="Close sidebar">&times;</button>
+                <!-- Search -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Search</h3>
+                    <input type="text" placeholder="Search photos..." class="search-box">
+                </div>
+
+                <!-- About -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">About</h3>
+                    <p class="about-text">
+                        I’m Giorgia, a creator at heart with a love for exploring different forms of expression. From photography to knitting, painting, and ceramics.
+                    </p>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Newsletter</h3>
+                    <p class="about-text" style="font-size: 0.9rem; margin-bottom: 20px;">
+                        Get weekly photo stories and tips delivered to your inbox.
+                    </p>
+                    <input type="email" placeholder="Your email..." class="newsletter-input">
+                    <button class="newsletter-btn">Subscribe</button>
+                </div>
+
+                <!-- Related Posts -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">You Might Also Like</h3>
+                    <div class="related-posts">                
+    """
+
+    for i in range(3):
+
+        post = blog_post[i]
+        related_post_template = f"""
+            <a href="posts/{post.filename}" class="related-post">
+                <img src="{post.main_photo}" alt="Mountain sunset">
+                <div class="related-post-content">
+                    <div class="related-post-title">{post.title}</div>
+                    <div class="related-post-date">{post.date.strftime("%B %d, %Y")}</div>
+                </div>
+            </a>
+        """
+
+        SIDEBAR_HTML_COMMON = SIDEBAR_HTML_COMMON + related_post_template
+
+    return SIDEBAR_HTML_COMMON
