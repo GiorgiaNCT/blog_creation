@@ -18,7 +18,7 @@ blog_post_old = {
 
 blog_post = [
     Post(
-        filename='films_mexico.html',
+        filename='films_mexico_v2.html',
         title='Unfolding Mexico: A 35mm Journey',
         blog_title='Unfolding Mexico: A 35mm Journey',
         blog_subtitle='A journey through Mexico’s colors, textures, and spirit — captured only on film.',

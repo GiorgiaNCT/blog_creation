@@ -1,12 +1,6 @@
+from configs.blog_details import blog_post
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inside Tepito: Mexico City’s Legendary Market</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-    
+STYLE_HTML = """
    <style>
         * {
             margin: 0;
@@ -470,7 +464,9 @@
             }
         }
     </style>
+"""
 
+HEADER_HTML = """
 </head>
 <body>
     <header>
@@ -489,96 +485,9 @@
             </div>
         </div>
     </header>
+"""
 
-
-    <main class="container">
-        <a href="../index.html" class="back-button">
-            ← Back to Blog
-        </a>
-        
-        <div class="post-layout">
-            <article class="article-main">
-                <div class="post-header">
-                    <div class="post-meta">
-                        <span class="post-category">Photos</span>
-                        <span class="post-date">September 13, 2025</span>
-                    </div>
-                    <h1 class="post-title">Inside Tepito: Mexico City’s Legendary Market</h1>
-                    <p class="post-subtitle">Tepito market</p>
-                </div>
-
-                <div class="post-content">
-                    
-                    <p>Step into Tepito, Mexico City’s most legendary market, where history, tradition, and street culture collide. This tour unveils the hidden stories and vibrant spirit behind its bustling alleys.</p>
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c406f3db5d277bbb565d9583591f9b93de2edba1/tepito/40-DSCF5415.jpg" alt="Woman with flower" class="featured-image">
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c406f3db5d277bbb565d9583591f9b93de2edba1/tepito/42-DSCF5406.jpg" alt="Mask " class="featured-image">
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c406f3db5d277bbb565d9583591f9b93de2edba1/tepito/44-DSCF5403.jpg" alt="Mask " class="featured-image">
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c406f3db5d277bbb565d9583591f9b93de2edba1/tepito/45-DSCF5400.jpg" alt="Mask " class="featured-image">
-        
-                </div>
-
-                <div class="post-tags">
-                    <a href="#" class="tag">Photo</a>
-                </div>
-
-                <div class="share-section">
-                    <h3 class="share-title">Share This Story</h3>
-                    <div class="share-buttons">
-                        <a href="#" class="share-btn facebook">FB</a>
-                        <a href="#" class="share-btn twitter">TW</a>
-                        <a href="#" class="share-btn pinterest">PI</a>
-                        <a href="#" class="share-btn instagram">IG</a>
-                    </div>
-                </div>
-            </article>
-    
-
-            <aside class="sidebar">
-                <button class="sidebar-close" aria-label="Close sidebar">&times;</button>
-                <!-- Search -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">Search</h3>
-                    <input type="text" placeholder="Search photos..." class="search-box">
-                </div>
-
-                <!-- About -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">About</h3>
-                    <p class="about-text">
-                        I’m Giorgia, a creator at heart with a love for exploring different forms of expression. From photography to knitting, painting, and ceramics.
-                    </p>
-                </div>
-
-                <!-- Newsletter -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">Newsletter</h3>
-                    <p class="about-text" style="font-size: 0.9rem; margin-bottom: 20px;">
-                        Get weekly photo stories and tips delivered to your inbox.
-                    </p>
-                    <input type="email" placeholder="Your email..." class="newsletter-input">
-                    <button class="newsletter-btn">Subscribe</button>
-                </div>
-
-                <!-- Related Posts -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">You Might Also Like</h3>
-                    <div class="related-posts">                
-    
-            <a href="posts/films_mexico_v2.html" class="related-post">
-                <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760011.jpg" alt="Mountain sunset">
-                <div class="related-post-content">
-                    <div class="related-post-title">Unfolding Mexico: A 35mm Journey</div>
-                    <div class="related-post-date">September 15, 2025</div>
-                </div>
-            </a>
-        
-                    </div>
-                </div>
-            </aside>
-        </div>
-    </main>
-
-    
+SCRIPT_HTML = """
     <script>
 
         // Sidebar toggle for small screens
@@ -746,3 +655,59 @@
     </script>
 </body>
 </html>
+"""
+
+
+
+def get_related_post():
+
+    SIDEBAR_HTML_COMMON = """
+
+            <aside class="sidebar">
+                <button class="sidebar-close" aria-label="Close sidebar">&times;</button>
+                <!-- Search -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Search</h3>
+                    <input type="text" placeholder="Search photos..." class="search-box">
+                </div>
+
+                <!-- About -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">About</h3>
+                    <p class="about-text">
+                        I’m Giorgia, a creator at heart with a love for exploring different forms of expression. From photography to knitting, painting, and ceramics.
+                    </p>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Newsletter</h3>
+                    <p class="about-text" style="font-size: 0.9rem; margin-bottom: 20px;">
+                        Get weekly photo stories and tips delivered to your inbox.
+                    </p>
+                    <input type="email" placeholder="Your email..." class="newsletter-input">
+                    <button class="newsletter-btn">Subscribe</button>
+                </div>
+
+                <!-- Related Posts -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">You Might Also Like</h3>
+                    <div class="related-posts">                
+    """
+
+    for i in range(3):
+
+        post = blog_post[i]
+        related_post_template = f"""
+            <a href="posts/{post.filename}" class="related-post">
+                <img src="{post.main_photo}" alt="Mountain sunset">
+                <div class="related-post-content">
+                    <div class="related-post-title">{post.title}</div>
+                    <div class="related-post-date">{post.date.strftime("%B %d, %Y")}</div>
+                </div>
+            </a>
+        """
+
+        SIDEBAR_HTML_COMMON = SIDEBAR_HTML_COMMON + related_post_template
+
+        return SIDEBAR_HTML_COMMON
