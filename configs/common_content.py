@@ -189,7 +189,7 @@ STYLE_HTML = """
             color: #d4914a; 
         }
         
-        .post-image {
+        .post-image, .featured-image {
             width: 100%;
             height: 500px;
             object-fit: cover;
@@ -198,8 +198,8 @@ STYLE_HTML = """
             transition: all 0.5s ease;
             cursor: pointer;
         }
-        
-        .post-image:hover {
+
+        .post-image:hover, .featured-image:hover {
             transform: scale(1.02);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
@@ -663,7 +663,7 @@ STYLE_HTML = """
                 font-size: 1.4rem;
             }
 
-            .post-image {
+            .post-image, .featured-image {
                 height: 220px;
             }
 
