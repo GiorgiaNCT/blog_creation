@@ -682,7 +682,7 @@ nav a:hover::after {
     width: auto;
 }
 
-        /* Sidebar Navigation Styles */
+/* Sidebar Navigation Styles */
 .sidebar-nav ul {
     list-style: none;
     padding: 0;
