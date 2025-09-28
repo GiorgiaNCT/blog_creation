@@ -638,7 +638,7 @@
         
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-toggle {
+            .sidebar-toggle, .nav-toggle {
                 display: block;
             }
 

@@ -502,7 +502,7 @@
                         <li><a href="#">About</a></li>
                     </ul>
                 </nav>
-                <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+                <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
             </div>
         </div>
     </header>
@@ -628,21 +628,12 @@
     </main>
 
     <script>
-        // Combined menu toggle for small screens
+        // Navigation toggle for small screens
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
-        const sidebar = document.querySelector('.sidebar');
-        const sidebarClose = document.querySelector('.sidebar-close');
         if (navToggle) {
             navToggle.addEventListener('click', () => {
                 navMenu.classList.toggle('open');
-                sidebar.classList.toggle('open');
-            });
-        }
-        if (sidebarClose) {
-            sidebarClose.addEventListener('click', () => {
-                sidebar.classList.remove('open');
-                navMenu.classList.remove('open');
             });
         }
 

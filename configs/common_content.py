@@ -15,7 +15,8 @@ HEADER_HTML = """
                         <li><a href="#">About</a></li>
                     </ul>
                 </nav>
-                <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+                <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+                <button class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
             </div>
         </div>
     </header>
@@ -24,21 +25,27 @@ HEADER_HTML = """
 SCRIPT_HTML = """
     <script>
 
-        // Combined menu toggle for small screens
+        // Navigation toggle for small screens
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
-        const sidebar = document.querySelector('.sidebar');
-        const sidebarClose = document.querySelector('.sidebar-close');
         if (navToggle) {
             navToggle.addEventListener('click', () => {
                 navMenu.classList.toggle('open');
+            });
+        }
+
+        // Sidebar toggle for small screens
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarClose = document.querySelector('.sidebar-close');
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
                 sidebar.classList.toggle('open');
             });
         }
         if (sidebarClose) {
             sidebarClose.addEventListener('click', () => {
                 sidebar.classList.remove('open');
-                navMenu.classList.remove('open');
             });
         }
 
