@@ -81,8 +81,6 @@ for post in blog_post:
     """
 
     html_template = html_template + SCRIPT_HTML
-
-    print(html_template)
     file_path = os.path.join(current_dir, 'posts', post.filename)
 
     # Write to file

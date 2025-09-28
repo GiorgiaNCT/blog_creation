@@ -12,7 +12,6 @@ HEADER_HTML = """
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="#" class="filter-link" data-filter="Photos">Photos</a></li>
                         <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
-                        <li><a href="#">About</a></li>
                     </ul>
                 </nav>
                 <button class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
