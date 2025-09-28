@@ -8,14 +8,13 @@ HEADER_HTML = """
             <div class="header-content">
                 <a href="../index.html" class="logo">Giorgia - photography blog</a>
                 <nav>
-                    <ul class="nav-menu">
+                    <ul>
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="#" class="filter-link" data-filter="Photos">Photos</a></li>
                         <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
                         <li><a href="#">About</a></li>
                     </ul>
                 </nav>
-                <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
                 <button class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
             </div>
         </div>
@@ -24,15 +23,6 @@ HEADER_HTML = """
 
 SCRIPT_HTML = """
     <script>
-
-        // Navigation toggle for small screens
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        if (navToggle) {
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('open');
-            });
-        }
 
         // Sidebar toggle for small screens
         const sidebarToggle = document.querySelector('.sidebar-toggle');

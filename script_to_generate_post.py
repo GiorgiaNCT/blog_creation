@@ -90,4 +90,3 @@ for post in blog_post:
         f.write(html_template)
 
     print(f"Document written to: {file_path}")
-
