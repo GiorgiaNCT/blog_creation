@@ -1,6 +1,6 @@
 import os
 from configs.blog_details import blog_post
-from configs.common_content import SCRIPT_HTML, get_related_post
+from configs.common_content import get_script, get_related_post
 
 start_html_index = """
 <!DOCTYPE html>
@@ -75,6 +75,21 @@ def create_index():
         </div>
     </main>
     """
+    
+    additional_script = """
+    window.addEventListener('load', () => {
+        const hash = window.location.hash.substring(1); // Remove the #
+        if (hash && hash !== 'all') {
+            // Trigger the filter for the specific category
+            const targetLink = document.querySelector(`[data-filter="${hash}"]`);
+            if (targetLink) {
+                targetLink.click();
+                }
+            }
+        });
+    """
+
+    SCRIPT_HTML = get_script(additional_script)
 
     total_post = total_post + SCRIPT_HTML
 

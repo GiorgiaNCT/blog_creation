@@ -1,6 +1,6 @@
 import os
 from configs.blog_details import blog_post
-from configs.common_content import SCRIPT_HTML, HEADER_HTML, get_related_post
+from configs.common_content import get_script, HEADER_HTML, get_related_post
 
 def create_posts():
     current_dir = os.getcwd()
@@ -75,6 +75,8 @@ def create_posts():
     </main>
 
         """
+
+        SCRIPT_HTML = get_script('')
 
         html_template = html_template + SCRIPT_HTML
         file_path = os.path.join(current_dir, 'posts', post.filename)

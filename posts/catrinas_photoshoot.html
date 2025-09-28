@@ -328,17 +328,8 @@
                 });
             });
         });
-
-        window.addEventListener('load', () => {
-        const hash = window.location.hash.substring(1); // Remove the #
-        if (hash && hash !== 'all') {
-            // Trigger the filter for the specific category
-            const targetLink = document.querySelector(`[data-filter="${hash}"]`);
-            if (targetLink) {
-                targetLink.click();
-                }
-            }
-        });
+      
     </script>
 </body>
 </html>
+    

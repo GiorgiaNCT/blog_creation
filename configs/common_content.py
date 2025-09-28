@@ -20,7 +20,9 @@ HEADER_HTML = """
     </header>
 """
 
-SCRIPT_HTML = """
+def get_script(additional_script: str): 
+
+    SCRIPT_HTML = """
     <script>
 
         // Sidebar toggle for small screens
@@ -185,21 +187,14 @@ SCRIPT_HTML = """
                 });
             });
         });
+    """
 
-        window.addEventListener('load', () => {
-        const hash = window.location.hash.substring(1); // Remove the #
-        if (hash && hash !== 'all') {
-            // Trigger the filter for the specific category
-            const targetLink = document.querySelector(`[data-filter="${hash}"]`);
-            if (targetLink) {
-                targetLink.click();
-                }
-            }
-        });
+    SCRIPT_HTML = SCRIPT_HTML + additional_script +  """  
     </script>
 </body>
 </html>
-"""
+    """
+    return SCRIPT_HTML
 
 
 
