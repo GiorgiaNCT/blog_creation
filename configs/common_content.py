@@ -10,8 +10,8 @@ HEADER_HTML = """
                 <nav>
                     <ul>
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="../index.html" class="filter-link" data-filter="Photos">Photography</a></li>
-                        <li><a href="../index.html" class="filter-link" data-filter="Creations">Creations</a></li>
+                        <li><a href="../index.html#Photos">Photography</a></li>
+                        <li><a href="../index.html#Creations">Creations</a></li>
                     </ul>
                 </nav>
                 <button class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
@@ -184,6 +184,17 @@ SCRIPT_HTML = """
                     }
                 });
             });
+        });
+
+        window.addEventListener('load', () => {
+        const hash = window.location.hash.substring(1); // Remove the #
+        if (hash && hash !== 'all') {
+            // Trigger the filter for the specific category
+            const targetLink = document.querySelector(`[data-filter="${hash}"]`);
+            if (targetLink) {
+                targetLink.click();
+                }
+            }
         });
     </script>
 </body>
