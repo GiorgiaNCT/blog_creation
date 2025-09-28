@@ -72,6 +72,17 @@
 
             <aside class="sidebar">
                 <button class="sidebar-close" aria-label="Close sidebar">&times;</button>
+
+                <!-- Navigation Menu (Mobile Only) -->
+                <div class="sidebar-section mobile-nav-section">
+                    <h3 class="sidebar-title">Menu</h3>
+                    <nav class="sidebar-nav">
+                        <a href="#" class="sidebar-filter-link" data-filter="all">🏠 Home</a>
+                        <a href="#" class="sidebar-filter-link" data-filter="Photos">📸 Photography</a>
+                        <a href="#" class="sidebar-filter-link" data-filter="Creations">🎨 Creations</a>
+                    </nav>
+                </div>
+                
                 <!-- Search -->
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">Search</h3>
@@ -277,25 +288,47 @@
             observer.observe(post);
         });
 
-        const filterLinks = document.querySelectorAll('.filter-link');
+        // Filter functionality for both header and sidebar navigation
+        function setupFilterLinks(selector) {
+            const filterLinks = document.querySelectorAll(selector);
 
-        filterLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const filter = link.getAttribute('data-filter');
+            filterLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const filter = link.getAttribute('data-filter');
         
-                posts.forEach(post => {
-                    const category = post.getAttribute('data-category');
+                    posts.forEach(post => {
+                        const category = post.getAttribute('data-category');
 
-                    if (filter === "all" || category === filter) {
-                        post.style.display = 'block';
-                        post.style.animation = 'fadeInUp 0.5s ease-out';
-                    } else {
-                        post.style.display = 'none';
+                        if (filter === "all" || category === filter) {
+                            post.style.display = 'block';
+                            post.style.animation = 'fadeInUp 0.5s ease-out';
+                        } else {
+                            post.style.display = 'none';
+                        }
+                    });
+
+                    // Close sidebar after selection on mobile
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('open');
                     }
+
+                    // Update active states for both header and sidebar
+                    document.querySelectorAll('.filter-link, .sidebar-filter-link').forEach(l => {
+                        l.classList.remove('active');
+                    });
+                    
+                    // Find corresponding links in both menus and mark as active
+                    document.querySelectorAll(`[data-filter="${filter}"]`).forEach(correspondingLink => {
+                        correspondingLink.classList.add('active');
+                    });
                 });
             });
-        });
+        }
+
+        // Setup filter links for both header and sidebar
+        setupFilterLinks('.filter-link');
+        setupFilterLinks('.sidebar-filter-link');
       
     </script>
 </body>
