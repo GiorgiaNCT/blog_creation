@@ -21,7 +21,7 @@ start_html_index = """
                 <nav>
                     <ul>
                         <li><a href="#" class="filter-link" data-filter="all">Home</a></li>
-                        <li><a href="#" class="filter-link" data-filter="Photos">Photos</a></li>
+                        <li><a href="#" class="filter-link" data-filter="Photos">Photography</a></li>
                         <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
                     </ul>
                 </nav>
@@ -35,12 +35,12 @@ start_html_index = """
             <div class="blog-posts">
 """
 
+def create_index():
+    total_post = start_html_index 
 
-total_post = start_html_index 
+    for post in blog_post:
 
-for post in blog_post:
-
-    post_template = f"""
+        post_template = f"""
                 <article class="post" data-category="{post.category}">
                     <div class="post-header">
                         <div class="post-meta">
@@ -56,34 +56,34 @@ for post in blog_post:
                     <div class="post-divider"></div>
                 </article>
 
+        """
+
+        total_post = total_post + post_template
+
+
+    total_post = total_post + """
+            </div>
     """
 
-    total_post = total_post + post_template
+    SIDEBAR_HTML_COMMON = get_related_post()
+    total_post = total_post + SIDEBAR_HTML_COMMON
 
-
-total_post = total_post + """
-            </div>
-"""
-
-SIDEBAR_HTML_COMMON = get_related_post()
-total_post = total_post + SIDEBAR_HTML_COMMON
-
-total_post = total_post + """
+    total_post = total_post + """
                     </div>
                 </div>
             </aside>
         </div>
     </main>
-"""
+    """
 
-total_post = total_post + SCRIPT_HTML
+    total_post = total_post + SCRIPT_HTML
 
-current_dir = os.getcwd()
-print(current_dir)
-file_path = os.path.join(current_dir, 'index.html')
+    current_dir = os.getcwd()
+    print(current_dir)
+    file_path = os.path.join(current_dir, 'index.html')
 
-# Write to file
-with open(file_path, "w", encoding="utf-8") as f:
-    f.write(total_post)
+    # Write to file
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(total_post)
 
-print(f"Document written to: {file_path}")
+    print(f"Document written to: {file_path}")

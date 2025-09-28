@@ -10,7 +10,7 @@ HEADER_HTML = """
                 <nav>
                     <ul>
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="#" class="filter-link" data-filter="Photos">Photos</a></li>
+                        <li><a href="#" class="filter-link" data-filter="Photos">Photography</a></li>
                         <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
                     </ul>
                 </nav>
