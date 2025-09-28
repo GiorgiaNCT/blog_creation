@@ -80,6 +80,64 @@
             color: #d4914a;
         }
 
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #2c2c2c;
+            cursor: pointer;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-close:hover {
+            color: #d4914a;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .mobile-nav li {
+            margin: 15px 0;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: #d4914a;
+        }
+
         .sidebar-close {
             position: absolute;
             top: 10px;
