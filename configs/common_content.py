@@ -10,8 +10,8 @@ HEADER_HTML = """
                 <nav>
                     <ul>
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="#" class="filter-link" data-filter="Photos">Photography</a></li>
-                        <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
+                        <li><a href="../index.html" class="filter-link" data-filter="Photos">Photography</a></li>
+                        <li><a href="../index.html" class="filter-link" data-filter="Creations">Creations</a></li>
                     </ul>
                 </nav>
                 <button class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
