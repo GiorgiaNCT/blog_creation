@@ -504,6 +504,69 @@
                 </nav>
                 <button class="nav-toggle" aria-label="Toggle menu">☰</button>
             </div>
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu">
+                <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+                <nav class="mobile-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Nature</a></li>
+                        <li><a href="#">Urban</a></li>
+                        <li><a href="#">Stories</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </nav>
+                <!-- Search -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Search</h3>
+                    <input type="text" placeholder="Search photos..." class="search-box">
+                </div>
+                <!-- About -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">About</h3>
+                    <p class="about-text">
+                        I'm Sarah, a passionate photographer who believes every moment deserves to be captured beautifully. Through my lens, I explore the world's hidden stories and share them with you.
+                    </p>
+                </div>
+                <!-- Newsletter -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Newsletter</h3>
+                    <p class="about-text" style="font-size: 0.9rem; margin-bottom: 20px;">
+                        Get weekly photo stories and tips delivered to your inbox.
+                    </p>
+                    <input type="email" placeholder="Your email..." class="newsletter-input">
+                    <button class="newsletter-btn">Subscribe</button>
+                </div>
+                <!-- Related Posts -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">You Might Also Like</h3>
+                    <div class="related-posts">
+                        <a href="#" class="related-post">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=60&h=60&fit=crop&auto=format" alt="Mountain sunset">
+                            <div class="related-post-content">
+                                <div class="related-post-title">Golden Hour in the Swiss Alps</div>
+                                <div class="related-post-date">Dec 12, 2024</div>
+                            </div>
+                        </a>
+                        <a href="#" class="related-post">
+                            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=60&h=60&fit=crop&auto=format" alt="City lights">
+                            <div class="related-post-content">
+                                <div class="related-post-title">Reflections in Tokyo Rain</div>
+                                <div class="related-post-date">Dec 8, 2024</div>
+                            </div>
+                        </a>
+                        <a href="#" class="related-post">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=60&h=60&fit=crop&auto=format" alt="Portrait">
+                            <div class="related-post-content">
+                                <div class="related-post-title">Stories in Weathered Hands</div>
+                                <div class="related-post-date">Dec 5, 2024</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -628,21 +691,18 @@
     </main>
 
     <script>
-        // Combined menu toggle for small screens
+        // Mobile menu toggle for small screens
         const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        const sidebar = document.querySelector('.sidebar');
-        const sidebarClose = document.querySelector('.sidebar-close');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
         if (navToggle) {
             navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('open');
-                sidebar.classList.toggle('open');
+                mobileMenu.classList.toggle('open');
             });
         }
-        if (sidebarClose) {
-            sidebarClose.addEventListener('click', () => {
-                sidebar.classList.remove('open');
-                navMenu.classList.remove('open');
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
             });
         }
 
