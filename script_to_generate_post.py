@@ -1,22 +1,18 @@
 import os
 from configs.blog_details import blog_post
-from configs.common_content import SCRIPT_HTML, HEADER_HTML, get_related_post
-title = 'titolo'
-titolo_blog = 'PROVA'
-test_blog_post = 'blablabla'
-subtitle_post = 'sottotitolo'
-tags_post = 'tags1'
+from configs.common_content import get_script, HEADER_HTML, get_related_post
 
-current_dir = os.getcwd()
-print(current_dir)
+def create_posts():
+    current_dir = os.getcwd()
+    print(current_dir)
 
-os.makedirs("posts", exist_ok=True)
-## Sort newest → oldest
-#posts_sorted = sorted(posts, key=lambda p: p.date, reverse=True)
+    os.makedirs("posts", exist_ok=True)
+    ## Sort newest → oldest
+    #posts_sorted = sorted(posts, key=lambda p: p.date, reverse=True)
 
 
-for post in blog_post:
-    html_template = f"""
+    for post in blog_post:
+        html_template = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,11 +22,11 @@ for post in blog_post:
     <link rel="stylesheet" href="../style_post.css">
     <link rel="icon" type="image/png" href="img/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-    """ 
+        """ 
 
-    html_template = html_template + HEADER_HTML    
+        html_template = html_template + HEADER_HTML    
 
-    html_template = html_template + f"""
+        html_template = html_template + f"""
 
     <main class="container">
         <a href="../index.html" class="back-button">
@@ -66,27 +62,27 @@ for post in blog_post:
                     </div>
                 </div>
             </article>
-    """
+        """
 
-    SIDEBAR_HTML_COMMON = get_related_post()
-    html_template = html_template + SIDEBAR_HTML_COMMON
+        SIDEBAR_HTML_COMMON = get_related_post()
+        html_template = html_template + SIDEBAR_HTML_COMMON
 
-    html_template = html_template + """
+        html_template = html_template + """
                     </div>
                 </div>
             </aside>
         </div>
     </main>
 
-    """
+        """
 
-    html_template = html_template + SCRIPT_HTML
+        SCRIPT_HTML = get_script('')
 
-    print(html_template)
-    file_path = os.path.join(current_dir, 'posts', post.filename)
+        html_template = html_template + SCRIPT_HTML
+        file_path = os.path.join(current_dir, 'posts', post.filename)
 
-    # Write to file
-    with open(file_path, "w", encoding="utf-8") as f:
-        f.write(html_template)
+        # Write to file
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(html_template)
 
-    print(f"Document written to: {file_path}")
+        print(f"Document written to: {file_path}")

@@ -10,9 +10,8 @@ HEADER_HTML = """
                 <nav>
                     <ul>
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="#" class="filter-link" data-filter="Photos">Photos</a></li>
-                        <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="../index.html#Photos">Photography</a></li>
+                        <li><a href="../index.html#Creations">Creations</a></li>
                     </ul>
                 </nav>
                 <button class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
@@ -21,7 +20,9 @@ HEADER_HTML = """
     </header>
 """
 
-SCRIPT_HTML = """
+def get_script(additional_script: str): 
+
+    SCRIPT_HTML = """
     <script>
 
         // Sidebar toggle for small screens
@@ -186,10 +187,14 @@ SCRIPT_HTML = """
                 });
             });
         });
+    """
+
+    SCRIPT_HTML = SCRIPT_HTML + additional_script +  """  
     </script>
 </body>
 </html>
-"""
+    """
+    return SCRIPT_HTML
 
 
 
