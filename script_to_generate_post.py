@@ -1,6 +1,6 @@
 import os
 from configs.blog_details import blog_post
-from configs.common_content import STYLE_HTML, SCRIPT_HTML, HEADER_HTML, get_related_post
+from configs.common_content import SCRIPT_HTML, HEADER_HTML, get_related_post
 title = 'titolo'
 titolo_blog = 'PROVA'
 test_blog_post = 'blablabla'
@@ -23,10 +23,10 @@ for post in blog_post:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{post.title}</title>
+    <link rel="stylesheet" href="../style_post.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
     """ 
-    
-    html_template = html_template + STYLE_HTML
 
     html_template = html_template + HEADER_HTML    
 

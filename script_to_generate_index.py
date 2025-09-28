@@ -9,7 +9,34 @@ start_html_index = """
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giorgia Photo Blog</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-    <style>
+    <link rel="stylesheet" href="style_post.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">Giorgia - photography blog</a>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="filter-link" data-filter="all">Home</a></li>
+                        <li><a href="#" class="filter-link" data-filter="Photos">Photos</a></li>
+                        <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </nav>
+                <button class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="main-layout">
+            <div class="blog-posts">
+"""
+
+old_style = """
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -472,28 +499,7 @@ start_html_index = """
             }
         }
     </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">Giorgia - photography blog</a>
-                <nav>
-                    <ul>
-                        <li><a href="#" class="filter-link" data-filter="all">Home</a></li>
-                        <li><a href="#" class="filter-link" data-filter="Photos">Photos</a></li>
-                        <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
-                        <li><a href="#">About</a></li>
-                    </ul>
-                </nav>
-                <button class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
-            </div>
-        </div>
-    </header>
 
-    <main class="container">
-        <div class="main-layout">
-            <div class="blog-posts">
 """
 
 middle_html_file = """
