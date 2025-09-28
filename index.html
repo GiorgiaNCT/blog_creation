@@ -201,18 +201,18 @@
     
     <script>
 
-        // Sidebar toggle for small screens
-        const sidebarToggle = document.querySelector('.sidebar-toggle');
-        const sidebar = document.querySelector('.sidebar');
-        const sidebarClose = document.querySelector('.sidebar-close');
-        if (sidebarToggle) {
-            sidebarToggle.addEventListener('click', () => {
-                sidebar.classList.toggle('open');
+        // Mobile menu toggle for small screens
+        const navToggle = document.querySelector('.nav-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
             });
         }
-        if (sidebarClose) {
-            sidebarClose.addEventListener('click', () => {
-                sidebar.classList.remove('open');
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
             });
         }
 
