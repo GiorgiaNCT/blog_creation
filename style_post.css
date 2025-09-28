@@ -676,3 +676,9 @@
                 font-size: 2rem;
             }
         }
+
+        .logo img {
+            height: 50px; /* adjust as needed */
+            width: auto;
+            display: block;
+        }
