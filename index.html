@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +43,7 @@
                     
                     <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760011.jpg" alt="Tokyo street in rain" class="post-image">
                     <p class="post-excerpt">
-                    Shot entirely on analog film, this collection reveals Mexico in its most timeless form, where imperfections become part of the story. Each frame carries the warmth of the country's light, its vibrant streets, and the soul of its people.
+                    Shot entirely on analog film, this collection reveals Mexico in its most timeless form, where imperfections become part of the story. Each frame carries the warmth of the country’s light, its vibrant streets, and the soul of its people.
                     </p>
         
                     <a href="posts/films_mexico_v2.html" class="continue-reading">Continue Reading</a>
@@ -99,13 +100,13 @@
                             <span class="post-date">September 13, 2025</span>
                         </div>
                         <h2 class="post-title">
-                            <a href="posts/tepito_market.html" class="post-link">Inside Tepito: Mexico City's Legendary Market</a>
+                            <a href="posts/tepito_market.html" class="post-link">Inside Tepito: Mexico City’s Legendary Market</a>
                         </h2>
                     </div>
                     
                     <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/42-DSCF5406.jpg" alt="Portrait of elderly hands" class="post-image">
                     <p class="post-excerpt">
-                        Step into Tepito, Mexico City's most legendary market, where history, tradition, and street culture collide. This tour unveils the hidden stories and vibrant spirit behind its bustling alleys.
+                        Step into Tepito, Mexico City’s most legendary market, where history, tradition, and street culture collide. This tour unveils the hidden stories and vibrant spirit behind its bustling alleys.
                     </p>
         
                     <a href="posts/tepito_market.html" class="continue-reading">Continue Reading</a>
@@ -139,14 +140,14 @@
 
             <aside class="sidebar">
                 <button class="sidebar-close" aria-label="Close sidebar">&times;</button>
-                
+
                 <!-- Navigation Menu (Mobile Only) -->
                 <div class="sidebar-section mobile-nav-section">
                     <h3 class="sidebar-title">Menu</h3>
                     <nav class="sidebar-nav">
-                        <a href="#" class="sidebar-filter-link" data-filter="all">🏠 Home</a>
-                        <a href="#" class="sidebar-filter-link" data-filter="Photos">📸 Photography</a>
-                        <a href="#" class="sidebar-filter-link" data-filter="Creations">🎨 Creations</a>
+                        <a href="../index.html" style="display: block;padding: 12px 0;color: #333;text-decoration: none;font-weight: 500;border-bottom: 1px solid #f0f0f0;transition: all 0.3s ease;" >Home</a>
+                        <a href="../index.html#Photos" style="display: block;padding: 12px 0;color: #333;text-decoration: none;font-weight: 500;border-bottom: 1px solid #f0f0f0;transition: all 0.3s ease;" >Photography</a>
+                        <a href="../index.html#Creations" style="display: block;padding: 12px 0;color: #333;text-decoration: none;font-weight: 500;border-bottom: 1px solid #f0f0f0;transition: all 0.3s ease;" >Creations</a>
                     </nav>
                 </div>
                 
@@ -160,7 +161,7 @@
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">About</h3>
                     <p class="about-text">
-                        I'm Giorgia, a creator at heart with a love for exploring different forms of expression. From photography to knitting, painting, and ceramics.
+                        I’m Giorgia, a creator at heart with a love for exploring different forms of expression. From photography to knitting, painting, and ceramics.
                     </p>
                 </div>
 
@@ -357,12 +358,12 @@
         // Filter functionality for both header and sidebar navigation
         function setupFilterLinks(selector) {
             const filterLinks = document.querySelectorAll(selector);
-            
+
             filterLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const filter = link.getAttribute('data-filter');
-            
+        
                     posts.forEach(post => {
                         const category = post.getAttribute('data-category');
 
@@ -396,13 +397,13 @@
         setupFilterLinks('.filter-link');
         setupFilterLinks('.sidebar-filter-link');
     
-        window.addEventListener('load', () => {
-            const hash = window.location.hash.substring(1); // Remove the #
-            if (hash && hash !== 'all') {
-                // Trigger the filter for the specific category
-                const targetLink = document.querySelector(`[data-filter="${hash}"]`);
-                if (targetLink) {
-                    targetLink.click();
+    window.addEventListener('load', () => {
+        const hash = window.location.hash.substring(1); // Remove the #
+        if (hash && hash !== 'all') {
+            // Trigger the filter for the specific category
+            const targetLink = document.querySelector(`[data-filter="${hash}"]`);
+            if (targetLink) {
+                targetLink.click();
                 }
             }
         });
@@ -410,3 +411,4 @@
     </script>
 </body>
 </html>
+    
