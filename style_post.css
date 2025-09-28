@@ -713,3 +713,77 @@ nav a:hover::after {
 .sidebar-filter-link:last-child {
     border-bottom: none;
 }
+
+/* Mobile Navigation in Sidebar */
+.mobile-nav-section {
+    display: none; /* Hidden by default on desktop */
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.sidebar-filter-link {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    background: #fff;
+    margin: 0;
+}
+
+.sidebar-filter-link:hover {
+    background: #f8f8f8;
+    color: #2c2c2c;
+    padding-left: 25px;
+}
+
+.sidebar-filter-link.active {
+    background: #2c2c2c;
+    color: #fff;
+}
+
+.sidebar-filter-link:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.sidebar-filter-link:last-child {
+    border-bottom: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Show mobile navigation only on mobile screens */
+@media (max-width: 768px) {
+    .mobile-nav-section {
+        display: block !important;
+    }
+    
+    /* Hide the top navigation on mobile */
+    header nav {
+        display: none;
+    }
+    
+    /* Make sure sidebar toggle is visible */
+    .sidebar-toggle {
+        display: block;
+    }
+}
+
+/* On desktop, hide the sidebar navigation and show header nav */
+@media (min-width: 769px) {
+    .mobile-nav-section {
+        display: none;
+    }
+    
+    header nav {
+        display: block;
+    }
+}
