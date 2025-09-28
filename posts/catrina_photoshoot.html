@@ -37,6 +37,7 @@
         }
         
         .header-content {
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -91,6 +92,22 @@
         nav a:hover::after {
             width: 100%;
             left: 0;
+        }
+
+        /* Navigation Toggle */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2c2c2c;
+            cursor: pointer;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle:hover {
+            color: #d4914a;
         }
         
         /* Back button */
@@ -419,23 +436,49 @@
         
         /* Responsive */
         @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-menu.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                z-index: 100;
+            }
+
+            .nav-menu li {
+                margin: 10px 0;
+            }
+
             .post-layout {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-            
+
             .post-title {
                 font-size: 2.2rem;
             }
-            
+
             .featured-image {
                 height: 400px;
             }
-            
+
             .gallery-image {
                 height: 350px;
             }
-            
+
             .sidebar {
                 position: relative;
                 top: auto;
@@ -449,7 +492,7 @@
             <div class="header-content">
                 <a href="index.html" class="logo">Through My Lens</a>
                 <nav>
-                    <ul>
+                    <ul class="nav-menu">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="#">Portfolio</a></li>
                         <li><a href="#">Travel</a></li>
@@ -459,6 +502,7 @@
                         <li><a href="#">About</a></li>
                     </ul>
                 </nav>
+                <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
             </div>
         </div>
     </header>
@@ -584,6 +628,15 @@
     </main>
 
     <script>
+        // Navigation toggle for small screens
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('open');
+            });
+        }
+
         // Lightbox for gallery images
         document.querySelectorAll('.gallery-image, .featured-image').forEach(img => {
             img.addEventListener('click', function() {

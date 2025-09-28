@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unfolding Mexico: A 35mm Journey</title>
     <link rel="stylesheet" href="../style_post.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
     
 </head>
@@ -15,13 +16,14 @@
             <div class="header-content">
                 <a href="../index.html" class="logo">Giorgia - photography blog</a>
                 <nav>
-                    <ul>
+                    <ul class="nav-menu">
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="#" class="filter-link" data-filter="Photos">Photos</a></li>
                         <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
                         <li><a href="#">About</a></li>
                     </ul>
                 </nav>
+                <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
                 <button class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
             </div>
         </div>
@@ -133,6 +135,15 @@
 
     
     <script>
+
+        // Navigation toggle for small screens
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('open');
+            });
+        }
 
         // Sidebar toggle for small screens
         const sidebarToggle = document.querySelector('.sidebar-toggle');
