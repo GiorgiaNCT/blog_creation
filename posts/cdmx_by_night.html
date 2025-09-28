@@ -25,70 +25,6 @@
                 </nav>
                 <button class="nav-toggle" aria-label="Toggle menu">☰</button>
             </div>
-            <!-- Mobile Menu Overlay -->
-            <div class="mobile-menu">
-                <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
-                <nav class="mobile-nav">
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="#" class="filter-link" data-filter="Photos">Photos</a></li>
-                        <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
-                        <li><a href="#">About</a></li>
-                    </ul>
-                </nav>
-                <!-- Search -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">Search</h3>
-                    <input type="text" placeholder="Search photos..." class="search-box">
-                </div>
-                <!-- About -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">About</h3>
-                    <p class="about-text">
-                        I'm Giorgia, a creator at heart with a love for exploring different forms of expression. From photography to knitting, painting, and ceramics.
-                    </p>
-                </div>
-                <!-- Newsletter -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">Newsletter</h3>
-                    <p class="about-text" style="font-size: 0.9rem; margin-bottom: 20px;">
-                        Get weekly photo stories and tips delivered to your inbox.
-                    </p>
-                    <input type="email" placeholder="Your email..." class="newsletter-input">
-                    <button class="newsletter-btn">Subscribe</button>
-                </div>
-                <!-- Related Posts -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">You Might Also Like</h3>
-                    <div class="related-posts">
-
-            <a href="posts/films_mexico_v2.html" class="related-post">
-                <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760011.jpg" alt="Mountain sunset">
-                <div class="related-post-content">
-                    <div class="related-post-title">Unfolding Mexico: A 35mm Journey</div>
-                    <div class="related-post-date">September 15, 2025</div>
-                </div>
-            </a>
-    
-            <a href="posts/catrinas_photoshoot.html" class="related-post">
-                <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/60-DSCF3191.jpg" alt="Mountain sunset">
-                <div class="related-post-content">
-                    <div class="related-post-title">Catrinas in CDMX: A Día de los Muertos Photoshoot</div>
-                    <div class="related-post-date">September 15, 2025</div>
-                </div>
-            </a>
-    
-            <a href="posts/cdmx_dia_de_los_muertos_2024_new.html" class="related-post">
-                <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/6-DSCF5719.jpg" alt="Mountain sunset">
-                <div class="related-post-content">
-                    <div class="related-post-title">CDMX Celebrates Día de los Muertos 2024</div>
-                    <div class="related-post-date">September 14, 2025</div>
-                </div>
-            </a>
-    
-                    </div>
-                </div>
-            </div>
         </div>
     </header>
 
@@ -197,18 +133,21 @@
     
     <script>
 
-        // Mobile menu toggle for small screens
+        // Combined menu toggle for small screens
         const navToggle = document.querySelector('.nav-toggle');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const navMenu = document.querySelector('.nav-menu');
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarClose = document.querySelector('.sidebar-close');
         if (navToggle) {
             navToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('open');
+                navMenu.classList.toggle('open');
+                sidebar.classList.toggle('open');
             });
         }
-        if (mobileMenuClose) {
-            mobileMenuClose.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
+        if (sidebarClose) {
+            sidebarClose.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+                navMenu.classList.remove('open');
             });
         }
 

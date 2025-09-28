@@ -17,61 +17,6 @@ HEADER_HTML = """
                 </nav>
                 <button class="nav-toggle" aria-label="Toggle menu">☰</button>
             </div>
-            <!-- Mobile Menu Overlay -->
-            <div class="mobile-menu">
-                <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
-                <nav class="mobile-nav">
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="#" class="filter-link" data-filter="Photos">Photos</a></li>
-                        <li><a href="#" class="filter-link" data-filter="Creations">Creations</a></li>
-                        <li><a href="#">About</a></li>
-                    </ul>
-                </nav>
-                <!-- Search -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">Search</h3>
-                    <input type="text" placeholder="Search photos..." class="search-box">
-                </div>
-                <!-- About -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">About</h3>
-                    <p class="about-text">
-                        I'm Giorgia, a creator at heart with a love for exploring different forms of expression. From photography to knitting, painting, and ceramics.
-                    </p>
-                </div>
-                <!-- Newsletter -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">Newsletter</h3>
-                    <p class="about-text" style="font-size: 0.9rem; margin-bottom: 20px;">
-                        Get weekly photo stories and tips delivered to your inbox.
-                    </p>
-                    <input type="email" placeholder="Your email..." class="newsletter-input">
-                    <button class="newsletter-btn">Subscribe</button>
-                </div>
-                <!-- Related Posts -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">You Might Also Like</h3>
-                    <div class="related-posts">
-"""
-
-for i in range(3):
-    post = blog_post[i]
-    related_post_template = f"""
-            <a href="posts/{post.filename}" class="related-post">
-                <img src="{post.main_photo}" alt="Mountain sunset">
-                <div class="related-post-content">
-                    <div class="related-post-title">{post.title}</div>
-                    <div class="related-post-date">{post.date.strftime("%B %d, %Y")}</div>
-                </div>
-            </a>
-    """
-    HEADER_HTML = HEADER_HTML + related_post_template
-
-HEADER_HTML = HEADER_HTML + """
-                    </div>
-                </div>
-            </div>
         </div>
     </header>
 """
@@ -79,18 +24,21 @@ HEADER_HTML = HEADER_HTML + """
 SCRIPT_HTML = """
     <script>
 
-        // Mobile menu toggle for small screens
+        // Combined menu toggle for small screens
         const navToggle = document.querySelector('.nav-toggle');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const navMenu = document.querySelector('.nav-menu');
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarClose = document.querySelector('.sidebar-close');
         if (navToggle) {
             navToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('open');
+                navMenu.classList.toggle('open');
+                sidebar.classList.toggle('open');
             });
         }
-        if (mobileMenuClose) {
-            mobileMenuClose.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
+        if (sidebarClose) {
+            sidebarClose.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+                navMenu.classList.remove('open');
             });
         }
 
