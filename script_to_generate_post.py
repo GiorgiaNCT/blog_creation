@@ -22,26 +22,9 @@ def create_posts():
     <link rel="stylesheet" href="../style_post.css">
     <link rel="icon" type="image/png" href="img/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <div class="container">
-                <div class="header-content">
-                    <a href="../index.html" class="logo">Giorgia - photography blog</a>
-                    <nav>
-                        <ul>
-                            <li><a href="../index.html">Home</a></li>
-                            <li><a href="../index.html#Photos">Photography</a></li>
-                            <li><a href="../index.html#Creations">Creations</a></li>
-                        </ul>
-                    </nav>
-                    <button class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
-                </div>
-            </div>
-        </header>
         """ 
 
-        #html_template = html_template + HEADER_HTML    
+        html_template = html_template + HEADER_HTML    
 
         html_template = html_template + f"""
 
