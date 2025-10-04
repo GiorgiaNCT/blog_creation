@@ -171,8 +171,11 @@
                     <p class="about-text" style="font-size: 0.9rem; margin-bottom: 20px;">
                         Get weekly photo stories and tips delivered to your inbox.
                     </p>
-                    <input type="email" placeholder="Your email..." class="newsletter-input">
-                    <button class="newsletter-btn">Subscribe</button>
+                    <form action="https://buttondown.com/api/emails/embed-subscribe/giorgia" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/giorgia', 'popupwindow')" class="embeddable-buttondown-form">
+                        <input type="email" name="email" id="bd-email" placeholder="Your email..." class="newsletter-input" />
+                        <input type="submit" value="Subscribe" class="newsletter-btn" />
+                        <p style="font-size: 0.8rem; margin-top: 10px; text-align: center;"><a href="https://buttondown.com/refer/giorgia" target="_blank">Powered by Buttondown.</a></p>
+                    </form>
                 </div>
 
                 <!-- Related Posts -->
@@ -272,28 +275,6 @@
             });
         });
 
-        // Newsletter subscription
-        const newsletterBtn = document.querySelector('.newsletter-btn');
-        const newsletterInput = document.querySelector('.newsletter-input');
-
-        newsletterBtn.addEventListener('click', function() {
-            const email = newsletterInput.value.trim();
-            if (email && email.includes('@')) {
-                newsletterBtn.textContent = 'Subscribed!';
-                newsletterBtn.style.background = '#4CAF50';
-                newsletterInput.value = '';
-                
-                setTimeout(() => {
-                    newsletterBtn.textContent = 'Subscribe';
-                    newsletterBtn.style.background = '#2c2c2c';
-                }, 2000);
-            } else {
-                newsletterInput.style.borderColor = '#e74c3c';
-                setTimeout(() => {
-                    newsletterInput.style.borderColor = '#f0f0f0';
-                }, 1000);
-            }
-        });
 
         // Image hover effects
         document.querySelectorAll('.post-image').forEach(img => {
