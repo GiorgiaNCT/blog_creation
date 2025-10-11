@@ -18,6 +18,35 @@ blog_post_old = {
 
 blog_post = [
     Post(
+        filename='oaxaca.html',
+        title='Mercado de Abastos: Oaxaca',
+        blog_title='Mercado de Abastos: Oaxaca',
+        blog_subtitle='Walking through Oaxaca’s vibrant market, one frame at a time.',
+        blog_content="""
+                    <p>On a warm morning, I wandered through the **Mercado de Abastos** in Oaxaca — absorbing colors, voices, textures. Each stall, each face, each fragment of light became a frame. This is more than a market; it’s a story in motion.</p>
+    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/0937ed97f9a7141033d738dddb6ed293ec28d5b8/Oaxaca/DSCF2909.jpg" alt="Stall with fruits" class="featured-image">
+    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/0937ed97f9a7141033d738dddb6ed293ec28d5b8/Oaxaca/DSCF2920.jpg" alt="Colorful fabrics" class="featured-image">
+    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/0937ed97f9a7141033d738dddb6ed293ec28d5b8/Oaxaca/DSCF2929.jpg" alt="Market corridor" class="featured-image">
+    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/0937ed97f9a7141033d738dddb6ed293ec28d5b8/Oaxaca/DSCF2933.jpg" alt="Vendor arranging goods" class="featured-image">
+    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/0937ed97f9a7141033d738dddb6ed293ec28d5b8/Oaxaca/DSCF2939.jpg" alt="Close up of produce" class="featured-image">
+    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/0937ed97f9a7141033d738dddb6ed293ec28d5b8/Oaxaca/DSCF2949.jpg" alt="Shadows in aisle" class="featured-image">
+    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/0937ed97f9a7141033d738dddb6ed293ec28d5b8/Oaxaca/DSCF2955.jpg" alt="Shadows in aisle" class="featured-image">
+    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/0937ed97f9a7141033d738dddb6ed293ec28d5b8/Oaxaca/DSCF2961.jpg" alt="Shadows in aisle" class="featured-image">
+    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/0937ed97f9a7141033d738dddb6ed293ec28d5b8/Oaxaca/DSCF2971.jpg" alt="Shadows in aisle" class="featured-image">
+
+        """,
+        preview="""
+                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/0937ed97f9a7141033d738dddb6ed293ec28d5b8/Oaxaca/DSCF2961.jpg"  alt="Market entrance" class="post-image">
+                    <p class="post-excerpt">
+                         On a warm morning, I wandered through the **Mercado de Abastos** in Oaxaca — absorbing colors, voices, textures. Each stall, each face, each fragment of light became a frame.
+                    </p>
+        """,
+        main_photo="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/0937ed97f9a7141033d738dddb6ed293ec28d5b8/Oaxaca/DSCF2961.jpg" ,
+        category="Photos",
+        tags=['Photo'],
+        date=date(2025, 10, 11)
+    ),
+    Post(
         filename='films_mexico_v2.html',
         title='Unfolding Mexico: A 35mm Journey',
         blog_title='Unfolding Mexico: A 35mm Journey',
