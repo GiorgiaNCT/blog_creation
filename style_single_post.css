@@ -156,14 +156,14 @@ nav a:hover {
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    gap: 4px;
     margin: 0;
 }
 
 .gallery-item {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 2/3;
+    aspect-ratio: 3/2;
 }
 
 .gallery-item img {
@@ -370,7 +370,7 @@ nav a:hover {
     }
 
     .gallery-item {
-        aspect-ratio: 3/2;
+        aspect-ratio: 2/3;
     }
 
     .footer-section {
