@@ -163,7 +163,7 @@ nav a:hover {
 .gallery-item {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 3/2;
+    aspect-ratio: 2/3;
 }
 
 .gallery-item img {
