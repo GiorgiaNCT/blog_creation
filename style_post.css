@@ -787,3 +787,105 @@ nav a:hover::after {
         display: block;
     }
 }
+
+/* --- Shortstache-style post layout --- */
+
+/* Make the featured image full-width across the container */
+.article-main .featured-image {
+    width: 100vw;                /* full browser width */
+    height: 80vh;                /* tall, immersive */
+    object-fit: cover;           /* fill nicely */
+    border-radius: 0;            /* remove rounded corners */
+    margin: 0 calc(-50vw + 50%); /* extend beyond container */
+    display: block;
+    box-shadow: none;
+}
+
+/* Move post header below image and style it cleanly */
+.article-main .post-header {
+    max-width: 900px;
+    margin: 80px auto 40px auto;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.article-main .post-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.article-main .post-subtitle {
+    font-size: 1.2rem;
+    color: #777;
+    font-style: normal;
+    margin-bottom: 30px;
+}
+
+/* Metadata clean and subtle */
+.article-main .post-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+/* Content narrower and centered */
+.article-main .post-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #333;
+}
+
+.article-main .post-content p {
+    margin-bottom: 30px;
+}
+
+/* Secondary images (after main) styled like mini gallery */
+.article-main .post-content img:not(:first-of-type) {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Optional: Fade-in animation for the full-width hero image */
+.article-main .featured-image {
+    opacity: 0;
+    transform: scale(1.02);
+    animation: heroFadeIn 1.2s ease-out forwards;
+}
+
+@keyframes heroFadeIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .article-main .featured-image {
+        height: 50vh;
+        margin: 0 calc(-50vw + 50%);
+    }
+
+    .article-main .post-title {
+        font-size: 2rem;
+    }
+
+    .article-main .post-content {
+        padding: 0 15px;
+    }
+}
