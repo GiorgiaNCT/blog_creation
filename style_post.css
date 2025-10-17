@@ -860,17 +860,46 @@ nav a:hover::after {
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* Optional: Fade-in animation for the full-width hero image */
-.article-main .featured-image {
-    opacity: 0;
-    transform: scale(1.02);
-    animation: heroFadeIn 1.2s ease-out forwards;
+/* --- Hero image: full-screen fit without cropping --- */
+.article-main .featured-image:first-of-type {
+    width: 100vw;
+    height: 100vh;               /* fills the visible screen */
+    object-fit: contain;         /* no cropping */
+    object-position: center;
+    display: block;
+    margin: 0 calc(-50vw + 50%);
+    background-color: #000;      /* adds a cinematic letterbox effect if aspect ratio differs */
 }
 
-@keyframes heroFadeIn {
-    to {
-        opacity: 1;
-        transform: scale(1);
+/* Post header below hero image */
+.article-main .post-header {
+    max-width: 900px;
+    margin: 60px auto 40px auto;
+    text-align: left;
+    padding: 0 20px;
+}
+
+/* --- Other images: smaller and not cropped --- */
+.article-main .post-content img:not(:first-of-type) {
+    width: 90%;                  /* smaller than text width */
+    max-width: 800px;
+    height: auto;                /* maintain aspect ratio */
+    display: block;
+    margin: 40px auto;
+    border-radius: 8px;
+    object-fit: contain;         /* prevent cropping */
+    box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+}
+
+/* --- Responsive tweaks --- */
+@media (max-width: 768px) {
+    .article-main .featured-image:first-of-type {
+        height: 60vh;            /* smaller on mobile */
+    }
+
+    .article-main .post-content img:not(:first-of-type) {
+        width: 100%;
+        margin: 30px auto;
     }
 }
 
