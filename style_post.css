@@ -172,7 +172,7 @@ nav a:hover::after {
 
 .post-title {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #2c2c2c;
     line-height: 1.3;
@@ -196,31 +196,11 @@ nav a:hover::after {
 }
 
 .post-excerpt {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: #666;
-    margin-bottom: 20px;
+    display: none; /* Hide the excerpt text */
 }
 
 .continue-reading {
-    display: inline-block;
-    padding: 10px 25px;
-    background: #f8f8f8;
-    color: #2c2c2c;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    margin-top: auto;
-}
-
-.continue-reading:hover {
-    background: #d4914a;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(212, 145, 74, 0.3);
+    display: none; /* Hide the continue reading button */
 }
 
 .post-divider {
