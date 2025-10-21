@@ -7,6 +7,7 @@ class Post:
     title: str
     blog_title: str
     blog_subtitle: str
+    blog_intro: str
     blog_content: str
     preview: str
     main_photo: str
