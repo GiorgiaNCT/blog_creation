@@ -181,6 +181,7 @@ def create_posts():
         SCRIPT_HTML = get_script('')
 
         html_template = html_template + SCRIPT_HTML
+        """
         file_path = os.path.join(current_dir, 'posts', post.filename)
 
         # Write to file
@@ -188,4 +189,4 @@ def create_posts():
             f.write(html_template)
 
         print(f"Document written to: {file_path}")
-        """
+        
