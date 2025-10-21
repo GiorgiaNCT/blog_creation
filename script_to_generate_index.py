@@ -42,20 +42,19 @@ def create_index():
 
         post_template = f"""
                 <article class="post" data-category="{post.category}">
-                    <div class="post-header">
-                        <div class="post-meta">
-                            <span class="post-category">Photography</span>
-                            <span class="post-date">{post.date.strftime("%B %d, %Y")}</span>
+                    <a href="posts/{post.filename}" class="post-image-container">
+                        {post.main_photo}
+                        <div class="post-title-overlay">
+                            <div class="post-meta">
+                                <span class="post-category">{post.category}</span>
+                                <span class="post-date">{post.date.strftime("%B %d, %Y")}</span>
+                            </div>
+                            <h2 class="post-title">
+                                <span>{post.title}</span>
+                            </h2>
                         </div>
-                        <h2 class="post-title">
-                            <a href="posts/{post.filename}" class="post-link">{post.title}</a>
-                        </h2>
-                    </div>
-                    {post.preview}
-                    <a href="posts/{post.filename}" class="continue-reading">Continue Reading</a>
-                    <div class="post-divider"></div>
+                    </a>
                 </article>
-
         """
 
         total_post = total_post + post_template
