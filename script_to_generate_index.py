@@ -43,7 +43,7 @@ def create_index():
         post_template = f"""
                 <article class="post" data-category="{post.category}">
                     <a href="posts/{post.filename}" class="post-image-container">
-                        {post.main_photo}
+                        {post.preview}
                         <div class="post-title-overlay">
                             <div class="post-meta">
                                 <span class="post-category">{post.category}</span>
