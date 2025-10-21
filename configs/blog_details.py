@@ -41,7 +41,7 @@ blog_post = [
                     '<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760025.jpg" alt="Mask ">'
         ],
         preview='<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760011.jpg" alt="Tokyo street in rain" class="post-image">',
-        main_photo='<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760011.jpg" alt="Tokyo street in rain" class="post-image">',
+        main_photo='https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/scan/000007760011.jpg',
         category="Photos",
         tags=['Photo'],
         date=date(2025, 9, 15)
@@ -65,13 +65,8 @@ blog_post = [
                     '<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/0937ed97f9a7141033d738dddb6ed293ec28d5b8/taller/IMG_3144.JPG" alt="Catrina 2">',
                     '<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/0937ed97f9a7141033d738dddb6ed293ec28d5b8/taller/IMG_3163.JPG" alt="Catrina 2">'
         ],
-        preview="""
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/60-DSCF3191.jpg" alt="Swiss Alps at golden hour" class="post-image">
-                    <p class="post-excerpt">
-                        A vibrant homage to Día de los Muertos in CDMX, where Catrinas embody elegance and tradition. This photoshoot captures the spirit of remembrance and celebration.                    
-                    </p>
-        """,
-        main_photo='<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/60-DSCF3191.jpg" alt="Swiss Alps at golden hour" class="post-image">',
+        preview='<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/60-DSCF3191.jpg" alt="Swiss Alps at golden hour" class="post-image">',
+        main_photo='https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/60-DSCF3191.jpg',
         category="Photos",
         tags=['Photo'],
         date=date(2025, 9, 15)
@@ -86,13 +81,8 @@ blog_post = [
                     '<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/6-DSCF5719.jpg" alt="Woman with flower">',
                     '<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/9243c3184388fd8b4e9cc18c9409fbe6a1bedd35/2-DSCF5769.jpg" alt="Mask">'
         ],
-        preview="""
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/6-DSCF5719.jpg" alt="Tokyo street in rain" class="post-image">
-                    <p class="post-excerpt">
-                        Last year I experienced the vibrant Día de los Muertos parade in Mexico, where music, colors, and tradition filled the streets. It was a powerful celebration of life, memory, and culture.
-                    </p>
-        """,
-        main_photo='<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/6-DSCF5719.jpg" alt="Tokyo street in rain" class="post-image">',
+        preview='<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/6-DSCF5719.jpg" alt="Tokyo street in rain" class="post-image">',
+        main_photo='https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/6-DSCF5719.jpg',
         category="Photos",
         tags=['Photo'],
         date=date(2025, 9, 14)
@@ -109,13 +99,8 @@ blog_post = [
                     '<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c406f3db5d277bbb565d9583591f9b93de2edba1/tepito/44-DSCF5403.jpg" alt="Mask">',
                     '<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c406f3db5d277bbb565d9583591f9b93de2edba1/tepito/45-DSCF5400.jpg" alt="Mask">'
         ],
-        preview="""
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/42-DSCF5406.jpg" alt="Portrait of elderly hands" class="post-image">
-                    <p class="post-excerpt">
-                        Step into Tepito, Mexico City’s most legendary market, where history, tradition, and street culture collide. This tour unveils the hidden stories and vibrant spirit behind its bustling alleys.
-                    </p>
-        """,
-        main_photo='<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/42-DSCF5406.jpg" alt="Portrait of elderly hands" class="post-image">',
+        preview='<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/42-DSCF5406.jpg" alt="Portrait of elderly hands" class="post-image">',
+        main_photo='https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c7d77ee569e8cec6157c55ece5012372cb3bb1c3/42-DSCF5406.jpg',
         category="Photos",
         tags=['Photo'],
         date=date(2025, 9, 13)
@@ -130,13 +115,8 @@ blog_post = [
                     '<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/9f96cf159138287f43ba1fe4db104b1fed37fdea/23-DSCF5579.jpg" alt="Woman with flower">',
                     '<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/c1cbed055d0e17eaf97b88e33d55a03f89a45d88/21-DSCF5584.jpg" alt="Mask">'
         ],
-        preview="""
-                    <img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/9f96cf159138287f43ba1fe4db104b1fed37fdea/23-DSCF5579.jpg" alt="Portrait of elderly hands" class="post-image">
-                    <p class="post-excerpt">
-                       The streets of Mexico City come alive after dark, revealing lights, shadows, and hidden corners. A nighttime journey through CDMX captured through my lens.
-                    </p>
-        """,
-        main_photo='<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/9f96cf159138287f43ba1fe4db104b1fed37fdea/23-DSCF5579.jpg" alt="Portrait of elderly hands" class="post-image">',
+        preview='<img src="https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/9f96cf159138287f43ba1fe4db104b1fed37fdea/23-DSCF5579.jpg" alt="Portrait of elderly hands" class="post-image">',
+        main_photo='https://raw.githubusercontent.com/GiorgiaNCT/photo_blog/9f96cf159138287f43ba1fe4db104b1fed37fdea/23-DSCF5579.jpg',
         category="Creations",
         tags=['Photo'],
         date=date(2025, 9, 12)
