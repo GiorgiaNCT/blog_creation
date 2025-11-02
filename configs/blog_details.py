@@ -3,6 +3,20 @@ from datetime import date
 
 blog_post = [
     Post(
+        filename='milos_digital.html',
+        title='Milos',
+        blog_title='Milos moemories',
+        blog_subtitle='Walking through Milos vibrant villages, one frame at a time.',
+        blog_intro="On it’s a story in motion.",
+        blog_content=['<img src="https://drive.google.com/uc?export=view&id=1A-MLQemH9YrJB4l6Sk7-DYvWZK4gKNxv" alt="My Google Drive Image">',
+        ],
+        preview='<img src="https://drive.google.com/uc?export=view&id=1A-MLQemH9YrJB4l6Sk7-DYvWZK4gKNxv" alt="My Google Drive Image" class="post-image">',
+        main_photo="https://drive.google.com/uc?export=view&id=1A-MLQemH9YrJB4l6Sk7-DYvWZK4gKNxv" ,
+        category="Photos",
+        tags=['Photo'],
+        date=date(2025, 11, 2)
+    ),
+    Post(
         filename='oaxaca.html',
         title='Mercado de Abastos: Oaxaca',
         blog_title='Mercado de Abastos: Oaxaca',

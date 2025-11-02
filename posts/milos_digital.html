@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milos</title>
+    <link rel="stylesheet" href="../style_single_post.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+        
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">Giorgia - photography blog</a>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#Photos">Photography</a></li>
+                        <li><a href="../index.html#Creations">Creations</a></li>
+                    </ul>
+                </nav>
+                <button class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container">
+        <a href="../index.html" class="back-button">
+            ← Back to Blog
+        </a>
+        
+        <section class="hero-section">
+            <div class="post-meta">
+                <span class="post-category">Photos</span>
+                <span class="post-date">November 02, 2025</span>
+            </div>
+            <h1 class="post-title">Milos moemories</h1>
+            <p class="post-subtitle">Walking through Milos vibrant villages, one frame at a time.</p>
+            <p class="post-intro">On it’s a story in motion.</p>
+        </section>
+
+        <div class="gallery-container">
+            <div class="gallery-grid">
+        
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1A-MLQemH9YrJB4l6Sk7-DYvWZK4gKNxv" alt="My Google Drive Image">
+                </div>
+            
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer-section">
+            <div class="post-tags">
+                <a href="#" class="tag">Photo</a>
+            </div>
+
+            <div class="share-section">
+                <h3 class="share-title">Share This Story</h3>
+                <div class="share-buttons">
+                    <a href="#" class="share-btn facebook">FB</a>
+                    <a href="#" class="share-btn twitter">TW</a>
+                    <a href="#" class="share-btn pinterest">PI</a>
+                    <a href="#" class="share-btn instagram">IG</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+<!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg">
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+    </div>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lightbox functionality
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+            const galleryItems = document.querySelectorAll('.gallery-item img');
+            
+            let currentIndex = 0;
+            const images = Array.from(galleryItems).map(img => ({
+                src: img.src,
+                alt: img.alt
+            }));
+
+            console.log('Gallery items found:', galleryItems.length);
+
+            // Open lightbox
+            galleryItems.forEach((img, index) => {
+                img.addEventListener('click', function(e) {
+                    console.log('Image clicked:', index);
+                    currentIndex = index;
+                    openLightbox();
+                });
+            });
+
+            function openLightbox() {
+                console.log('Opening lightbox for image:', currentIndex);
+                lightboxImg.src = images[currentIndex].src;
+                lightboxImg.alt = images[currentIndex].alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                console.log('Closing lightbox');
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            // Close lightbox
+            lightboxClose.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeLightbox();
+            });
+
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Navigation
+            lightboxPrev.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                lightboxImg.src = images[currentIndex].src;
+                lightboxImg.alt = images[currentIndex].alt;
+            });
+
+            lightboxNext.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currentIndex = (currentIndex + 1) % images.length;
+                lightboxImg.src = images[currentIndex].src;
+                lightboxImg.alt = images[currentIndex].alt;
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    lightboxPrev.click();
+                } else if (e.key === 'ArrowRight') {
+                    lightboxNext.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+        
