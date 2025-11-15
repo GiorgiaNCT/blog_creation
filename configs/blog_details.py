@@ -8,10 +8,10 @@ blog_post = [
         blog_title='Milos moemories',
         blog_subtitle='Walking through Milos vibrant villages, one frame at a time.',
         blog_intro="On it’s a story in motion.",
-        blog_content=['<img src="https://drive.google.com/uc?export=view&id=1A-MLQemH9YrJB4l6Sk7-DYvWZK4gKNxv" alt="My Google Drive Image">',
+        blog_content=['<img src="https://res.cloudinary.com/dgtz7oo3v/image/upload/v1763232219/DSCF6188_scojaz.jpg" alt="My Google Drive Image">',
         ],
-        preview='<img src="https://drive.google.com/uc?export=view&id=1A-MLQemH9YrJB4l6Sk7-DYvWZK4gKNxv" alt="My Google Drive Image" class="post-image">',
-        main_photo="https://drive.google.com/uc?export=view&id=1A-MLQemH9YrJB4l6Sk7-DYvWZK4gKNxv" ,
+        preview='<img src="https://res.cloudinary.com/dgtz7oo3v/image/upload/v1763232219/DSCF6188_scojaz.jpg" alt="My Google Drive Image" class="post-image">',
+        main_photo="https://res.cloudinary.com/dgtz7oo3v/image/upload/v1763232219/DSCF6188_scojaz.jpg" ,
         category="Photos",
         tags=['Photo'],
         date=date(2025, 11, 2)
